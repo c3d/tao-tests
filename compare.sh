@@ -14,7 +14,8 @@ check_IM || die "ImageMagick command 'compare' not installed?"
 # different_pixels image1 image2
 # Echo the number of pixels that differ in image2 from image1. 0 = identical.
 different_pixels() {
-  compare -metric ae $1 $2  null: 2>&1
+  DIFF=${3-null:}
+  compare -metric ae -compose src $1 $2 $DIFF 2>&1
 }
 
 REFDIR=./ref
@@ -29,9 +30,9 @@ shopt -s nullglob
 {
   echo "Comparing image files in $REFDIR and $OUTDIR"
   cd $OUTDIR
-  for f in *.png ; do
+  for f in cap*.png ; do
     if [ -e ../$REFDIR/$f ] ; then
-        DIFF=$(different_pixels ../$REFDIR/$f $f)
+        DIFF=$(different_pixels ../$REFDIR/$f $f diff_$f)
         if [ "$DIFF" = 0 ] ; then
             echo "  $f: identical"
             IDENTICAL_FILES=$((IDENTICAL_FILES + 1))
