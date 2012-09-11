@@ -1,5 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 # 
+
+
+. functions.sh
+
+check_IM() {
+  compare --version 2>&1 | grep ImageMagick >/dev/null
+}
+
+check_IM || die "ImageMagick command 'compare' not installed?"
+
 
 # different_pixels image1 image2
 # Echo the number of pixels that differ in image2 from image1. 0 = identical.
@@ -9,6 +19,9 @@ different_pixels() {
 
 REFDIR=./ref
 OUTDIR=./out
+
+[ -d "$REFDIR" ] || die "Directory $REFDIR does not exist"
+[ -d "$OUTDIR" ] || die "Directory $OUTDIR does not exist"
 
 IDENTICAL_FILES=0
 DIFFERENT_FILES=0
@@ -34,6 +47,6 @@ shopt -s nullglob
 }
 
 echo
-echo "File totals:"
-echo "  identical: $IDENTICAL_FILES"
-echo "  different: $DIFFERENT_FILES"
+echo "Summary:"
+echo "  identical: $IDENTICAL_FILES files"
+echo "  different: $DIFFERENT_FILES files"
