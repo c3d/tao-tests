@@ -3,6 +3,7 @@
 . functions.sh
 
 # Set path to the Tao Presentations executable
+: ${ENV_FILE:="$HOME/.tao_tests_env"}
 if [ "$ENV_FILE" -a -r "$ENV_FILE" ] ; then
   . "$ENV_FILE"
 else
