@@ -1,0 +1,58 @@
+// Definitions to be used in the body of automatic tests
+//
+// Example:
+//   tao -p capture.xl <filename>.ddd
+/*
+capture_begin
+capture_page "Rectangle",
+    rectangle 0, 0, 200, 100
+capture_page "Circle",
+    circle 0, 0, 50
+capture_end
+*/
+
+
+// Not set => default 2D
+// checkerboard hintstereo hsplitstereo vsplitstereo
+// alioscopy tridelity 2dplusdepth 2dplusdepth_declipse
+DISPLAYMODE -> env "DISPLAYMODE"
+
+// Not set => document directory
+// Absolute or relative to document directory. Must exist or nothing is saved.
+CAPTURE_DIR -> env "CAPTURE_DIR"
+
+// Prepended to capture_page name
+PAGE_PREFIX -> ""
+
+cap_dir -> if CAPTURE_DIR <> "" then CAPTURE_DIR & "/" else ""
+cap_path T:text -> cap_dir & "capture_" & T  & ".png"
+capture PageName ->
+    writeln "Capture: ", cap_path PageName
+    screenshot cap_path PageName
+
+capture_page T:text, Body ->
+    page PAGE_PREFIX & T,
+        locally
+            do Body
+        capture page_name page_number 
+        cap_next_page
+
+// Set display mode and resolution
+WindowW -> 800
+WindowH -> 600
+capture_begin ->
+    page "Capture begin",
+        locally
+            window_size WindowW, WindowH 
+            if DISPLAYMODE <> "" then
+                writeln "Display mode: ", DISPLAYMODE
+                display_mode DISPLAYMODE
+            writeln "Begin"
+            cap_next_page
+
+cap_next_page -> goto_page page_name (page_number + 1)
+
+capture_end ->
+    page "End",
+        writeln "End"
+        exit 0

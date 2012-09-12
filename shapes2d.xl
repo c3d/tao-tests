@@ -1,0 +1,7 @@
+capture_page "Rectangle",
+    rectangle 0, 0, 200, 100
+capture_page "Circle",
+    circle 0, 0, 50
+capture_page "Arrow",
+    arrow 0, 0, 300, 80, 79, 0.2
+

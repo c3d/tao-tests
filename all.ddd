@@ -1,0 +1,10 @@
+capture_begin
+
+PAGE_PREFIX := ""
+import "shapes2d.xl"
+
+PAGE_PREFIX := "z200_"
+translatez 200
+import "shapes2d.xl"
+
+capture_end
