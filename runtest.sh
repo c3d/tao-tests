@@ -2,16 +2,21 @@
 
 . functions.sh
 
-# Path to the Tao Presentations executable
-case $(uname) in
-  Darwin)
-    TAO="$HOME/work/tao/install/Tao Presentations.app/Contents/MacOS/Tao Presentations"
-    ;;
-  Linux)
-    export LD_LIBRARY_PATH="$HOME/work/tao/install"
-    TAO="$HOME/work/tao/install/Tao"
-    ;;
-esac
+# Set path to the Tao Presentations executable
+if [ -r env.sh ] ; then
+  . env.sh
+else
+  # Defaults
+  case $(uname) in
+    Darwin)
+      TAO="$HOME/work/tao/install/Tao Presentations.app/Contents/MacOS/Tao Presentations"
+      ;;
+    Linux)
+      export LD_LIBRARY_PATH="$HOME/work/tao/install"
+      TAO="$HOME/work/tao/install/Tao"
+      ;;
+  esac
+fi
 
 [ "$@" ] || die "No file"
 
