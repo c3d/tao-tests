@@ -26,7 +26,10 @@ else
       export LD_LIBRARY_PATH="$HOME/work/tao/install"
       TAO="$HOME/work/tao/install/Tao"
       ;;
-  esac
+    MINGW*)
+      TAO="$HOME/work/tao/install/Tao"
+      ;;
+esac
 fi
 
 [ "$@" ] || die "No file"
