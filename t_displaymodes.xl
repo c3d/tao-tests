@@ -1,3 +1,17 @@
+display_test "2dplusdepth"
+display_test "alioscopy"
+display_test "anaglyph"
+display_test "checkerboard"
+display_test "hintstereo"
+// CRASH
+// display_test "quadstereo"
+display_test "hsplitstereo"
+display_test "vsplitstereo"
+display_test "hframepacking"
+display_test "vframepacking"
+display_test "tridelity"
+
+
 // Generic function to test a display mode 
 display_test Name:text ->
     page Name & " check",
@@ -12,3 +26,4 @@ display_test Name:text ->
     page Name & " restore 2D",
         display_mode "2D"
         next_page
+

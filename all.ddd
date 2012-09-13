@@ -8,12 +8,7 @@ translatez 200
 import "t_shapes2d.xl"
 translatez -200
 
-//
-// Test display modes
-//
-
 PAGE_PREFIX := ""
-import "t_anaglyph.xl"
-import "t_alioscopy.xl"
+import "t_displaymodes.xl"
 
 capture_end
