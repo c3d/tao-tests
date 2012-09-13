@@ -1,10 +1,14 @@
 capture_begin
 
 PAGE_PREFIX := ""
-import "shapes2d.xl"
+import "t_shapes2d.xl"
 
 PAGE_PREFIX := "z200_"
 translatez 200
-import "shapes2d.xl"
+import "t_shapes2d.xl"
+translatez -200
+
+PAGE_PREFIX := ""
+import "t_anaglyph.xl"
 
 capture_end

@@ -1,0 +1,7 @@
+capture_page "Anaglyph",
+    display_mode "anaglyph"
+    translatez 200
+    rectangle 0, 0, 200, 100
+page "Restore 2D",
+    display_mode "2D"
+    goto_page page_name (page_number + 1)
