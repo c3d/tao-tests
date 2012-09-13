@@ -12,27 +12,34 @@
 
 . functions.sh
 
-# Set path to the Tao Presentations executable
-: ${ENV_FILE:="$HOME/.tao_tests_env"}
-if [ "$ENV_FILE" -a -r "$ENV_FILE" ] ; then
-  . "$ENV_FILE"
-else
-  # Defaults
+[ "$@" ] || die "No file"
+
+# Set environment variables to run Tao Presentations
+case $(uname) in
+  Darwin)
+    TAOBASE="Tao Presentations"
+    ;;
+  Linux|MINGW*)
+    TAOBASE="Tao"
+    ;;
+esac
+TAO=$(which "$TAOBASE" 2>&1)
+if [ -z "$TAO" ] ; then
   case $(uname) in
     Darwin)
-      TAO="$HOME/work/tao/install/Tao Presentations.app/Contents/MacOS/Tao Presentations"
+      PATH="$HOME/work/tao/install/Tao Presentations.app/Contents/MacOS:$PATH"
       ;;
-    Linux)
-      export LD_LIBRARY_PATH="$HOME/work/tao/install"
-      TAO="$HOME/work/tao/install/Tao"
+    Linux|MINGW*)
+      PATH="$HOME/work/tao/install:$PATH"
       ;;
-    MINGW*)
-      TAO="$HOME/work/tao/install/Tao"
-      ;;
-esac
+  esac
+  TAO=$(which "$TAOBASE" 2>&1)
 fi
 
-[ "$@" ] || die "No file"
+[ "$TAO" ] || die "Command '$TAOBASE' not found in \$PATH or default working location"
+echo "Using Tao: '$TAO'"
+
+[ $(uname) = "Linux" ] && export LD_LIBRARY_PATH=$(dirname "$TAO"):$LD_LIBRARY_PATH
 
 # Default values for environment variables
 [ "$CAPTURE_DIR" ] || export CAPTURE_DIR=out
