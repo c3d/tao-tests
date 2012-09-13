@@ -35,7 +35,7 @@ capture_page T:text, Body ->
         locally
             do Body
         capture page_name page_number 
-        cap_next_page
+        next_page
 
 // Set display mode and resolution
 WindowW -> 800
@@ -48,9 +48,9 @@ capture_begin ->
                 writeln "Display mode: ", DISPLAYMODE
                 display_mode DISPLAYMODE
             writeln "Begin"
-            cap_next_page
+            next_page
 
-cap_next_page -> goto_page page_name (page_number + 1)
+next_page -> goto_page page_name (page_number + 1)
 
 capture_end ->
     page "End",

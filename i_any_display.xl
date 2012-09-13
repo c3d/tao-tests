@@ -1,0 +1,14 @@
+// Generic function to test a display mode 
+display_test Name:text ->
+    page Name & " check",
+        if not has_display_mode Name then
+            writeln "! ", Name, " display mode not available"
+            goto_page page_name (page_number + 2)
+        next_page
+    capture_page Name,
+        display_mode Name
+        translatez 200
+        rectangle 0, 0, 200, 100
+    page Name & " restore 2D",
+        display_mode "2D"
+        next_page
