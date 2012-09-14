@@ -23,20 +23,23 @@ case $(uname) in
     TAOBASE="Tao"
     ;;
 esac
+DFLT=none
 TAO=$(which "$TAOBASE" 2>&1)
 if [ -z "$TAO" ] ; then
   case $(uname) in
     Darwin)
-      PATH="$HOME/work/tao/install/Tao Presentations.app/Contents/MacOS:$PATH"
+      DFLT="$HOME/work/tao/install/Tao Presentations.app/Contents/MacOS"
+      PATH="$DFLT:$PATH"
       ;;
     Linux|MINGW*)
-      PATH="$HOME/work/tao/install:$PATH"
+      DFLT="$HOME/work/tao/install"
+      PATH="$DFLT:$PATH"
       ;;
   esac
   TAO=$(which "$TAOBASE" 2>&1)
 fi
 
-[ "$TAO" ] || die "Command '$TAOBASE' not found in \$PATH or default working location"
+[ "$TAO" ] || die "Command '$TAOBASE' not found in \$PATH or default working location '$DFLT'"
 echo "Using Tao: '$TAO'"
 
 [ $(uname) = "Linux" ] && export LD_LIBRARY_PATH=$(dirname "$TAO"):$LD_LIBRARY_PATH
