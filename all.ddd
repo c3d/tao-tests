@@ -3,10 +3,15 @@ capture_begin
 PAGE_PREFIX := ""
 import "t_shapes2d.xl"
 
-PAGE_PREFIX := "z200_"
+PAGE_PREFIX := "tz200_"
 translatez 200
 import "t_shapes2d.xl"
 translatez -200
+
+PAGE_PREFIX := "rz20_"
+rotatez 20
+import "t_shapes2d.xl"
+rotatez -20
 
 PAGE_PREFIX := ""
 import "t_displaymodes.xl"
