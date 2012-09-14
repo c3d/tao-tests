@@ -1,0 +1,28 @@
+capture_page "clear_color_black",
+    clear_color 0, 0, 0, 1
+clear_color 1, 1, 1, 0
+
+color_test "black"
+color_test "white"
+color_test "red"
+color_test "green"
+color_test "blue"
+color_test "#223344"
+color_test "nameA", { color "red", 0.5 }
+color_test "RGB", { color 0.5, 0.5, 0.5 }
+color_test "RGBA", { color 0.5, 0.5, 0.5, 0.5 }
+color_test "HSV", { color_hsv 180, 0.8, 0.8 }
+color_test "HSVA", { color_hsv 180, 0.8, 0.8, 0.5 }
+color_test "HSL", { color_hsl 180, 0.8, 0.2 }
+color_test "HSLA", { color_hsv 180, 0.8, 0.2, 0.5 }
+
+color_test N:text ->
+    capture_page "col_" & N,
+        color N
+        rectangle 0, 0, 100, 100
+
+color_test Name:text, Body ->
+    capture_page "col_" & Name,
+        do Body
+        rectangle 0, 0, 100, 100
+
