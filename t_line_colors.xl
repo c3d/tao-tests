@@ -10,6 +10,8 @@ line_color_test "HSV", { line_color_hsv 180, 0.8, 0.8 }
 line_color_test "HSVA", { line_color_hsv 180, 0.8, 0.8, 0.5 }
 line_color_test "HSL", { line_color_hsl 180, 0.8, 0.2 }
 line_color_test "HSLA", { line_color_hsv 180, 0.8, 0.2, 0.5 }
+line_color_test "CMYK", { line_color_cmyk 1.0, 0.2, 1.0, 0.1 }
+line_color_test "CMYKA", { line_color_cmyk 1.0, 0.2, 1.0, 0.1, 0.5 }
 
 line_color_test N:text ->
     capture_page "linecol_" & N,

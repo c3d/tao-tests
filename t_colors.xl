@@ -15,6 +15,8 @@ color_test "HSV", { color_hsv 180, 0.8, 0.8 }
 color_test "HSVA", { color_hsv 180, 0.8, 0.8, 0.5 }
 color_test "HSL", { color_hsl 180, 0.8, 0.2 }
 color_test "HSLA", { color_hsv 180, 0.8, 0.2, 0.5 }
+color_test "CMYK", { color_cmyk 1.0, 0.2, 1.0, 0.1 }
+color_test "CMYKA", { color_cmyk 1.0, 0.2, 1.0, 0.1, 0.5 }
 
 color_test N:text ->
     capture_page "col_" & N,
