@@ -3,8 +3,6 @@
 # Pre-requisites:
 #   * bash, gmake
 #   * ImageMagick (the 'convert' command)
-#   * Copy tao_tests_env to $HOME/.tao_tests_env and edit it so
-#     that the tester will find the Tao executable
 #
 # Usage:
 #   $ make ref   # Save reference pics under ./ref
@@ -14,8 +12,10 @@
 #
 # More advanced usage:
 #   * Choose the reference directory:
-#     make ref REF=./macosx_1.14
-#     make check REF=./macosx_1.14
+#     $ make ref REF=./macosx_1.14
+#     $ make check REF=./macosx_1.14
+#   * Choose the Tao executable:
+#     $ PATH=/path/to/Tao:$PATH make ref
 
 REF=./ref
 OUT=./out
