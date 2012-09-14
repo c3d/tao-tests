@@ -2,6 +2,6 @@ PAGE_PREFIX := PAGE_PREFIX & "col_"
 color "blue", 50%
 line_color "red", 50%
 import "t_shapes2d.xl"
-color "black"
-line_color "black"
+color "default"
+line_color "default"
 PAGE_PREFIX := ""

@@ -1,23 +1,13 @@
 capture_begin
 
 PAGE_PREFIX := ""
-import "t_shapes2d.xl"
-
-PAGE_PREFIX := "tz200_"
-translatez 200
-import "t_shapes2d.xl"
-translatez -200
-
-PAGE_PREFIX := "rz20_"
-rotatez 20
-import "t_shapes2d.xl"
-rotatez -20
-PAGE_PREFIX := ""
 
 import "t_colors.xl"
 import "t_line_colors.xl"
-import "t_colors_shapes2d.xl"
-import "t_displaymodes.xl"
+import "t_shapes2d.xl"
+import "t_colored_shapes2d.xl"
 import "t_gradients.xl"
+import "t_fonts.xl"
+import "t_displaymodes.xl"
 
 capture_end
