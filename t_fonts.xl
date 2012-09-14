@@ -1,0 +1,14 @@
+import RegExp
+
+font_test with "Arial", "Times", "Ubuntu"
+font_test with "Arial/Bold", "Times/Bold", "Ubuntu/Bold"
+
+font_test Name:text ->
+    remove_slash T:text -> text_replace T, "/", ""
+    capture_page "font_" & remove_slash Name,
+        text_box 0, 0, window_width*50%, window_height*50%,
+            vertical_align_center
+            align_center
+            font Name
+            font_size 60
+            text "The quick brown fox jumps over the lazy dog"
