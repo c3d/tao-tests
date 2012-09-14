@@ -15,6 +15,7 @@ rotatez -20
 PAGE_PREFIX := ""
 
 import "t_colors.xl"
+import "t_line_colors.xl"
 import "t_colors_shapes2d.xl"
 import "t_displaymodes.xl"
 import "t_gradients.xl"
