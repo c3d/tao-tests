@@ -1,0 +1,41 @@
+// Adapted from an onlinde documentation example
+
+capture_page "TextJustification",
+    tj_box { align_left ; vertical_align_top }
+    tj_box { align_center ; vertical_align_center }
+    tj_box { align_right ; vertical_align_bottom }
+    tj_x := tj_x0
+    tj_y := tj_y - tj_h - 10
+    tj_box { align_justify ; vertical_align_top }
+    tj_box { align_right_justify ; vertical_align_top  }
+    tj_box { align_full_justify ; vertical_align_top }
+
+tj_lorem -> <<Lorem ipsum dolor sit amet, consectetur adipisicing>> &
+<< elit, sed do eiusmod tempor incididunt ut labore et dolore >> &
+<<magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco >> &
+<<laboris nisi ut aliquip ex ea commodo consequat.>>
+
+tj_x0 -> -135
+tj_y0 -> 120
+
+tj_x -> 0
+tj_y -> 0
+tj_w -> 125
+tj_h -> 230
+
+tj_x := tj_x0
+tj_y := tj_y0
+
+tj_box Align ->
+    locally
+        color 0, 0, 1, 5%
+        line_width 0
+        rectangle tj_x, tj_y, tj_w, tj_h
+    text_box tj_x, tj_y, tj_w, tj_h,
+        font "Ubuntu", 12
+        do Align
+        text tj_lorem
+    tj_x := tj_x + tj_w + 10
+
