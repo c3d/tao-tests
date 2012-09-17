@@ -6,7 +6,7 @@
 #
 # Usage:
 #   $ make ref   # Save reference pics under ./ref
-#   ... Hack and "make install" Tao ...
+#   ... Hack and "make install" Tao, or change $PATH ...
 #   $ make check # Non-regression test:
 #                # save pics under ./out then compare with ./ref
 #
@@ -16,7 +16,9 @@
 #     $ make check REF=./macosx_1.14
 #   * Choose the Tao executable:
 #     $ PATH=/path/to/Tao:$PATH make ref
-
+#   * Run select tests (pics go into ./out)
+#     $ ./runtest.sh t_shapes2d.xl
+#
 REF=./ref
 OUT=./out
 
