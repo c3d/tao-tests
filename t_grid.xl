@@ -1,0 +1,21 @@
+// Cf. #2096
+// Expected: 1px black border
+capture_page "GridAligned1",
+    align_test_draw_rect 201, 301
+capture_page "GridAligned2",
+    translate 0.5, 0.5, 0.0
+    align_test_draw_rect 200, 300
+
+// Expected: 2px gray border (except if no AA)
+capture_page "GridUnAligned1",
+    align_test_draw_rect 200, 300
+capture_page "GridUnAligned2",
+    translate 0.5, 0.5, 0.0
+    align_test_draw_rect 201, 301
+
+
+align_test_draw_rect W, H ->
+    color "white"
+    line_color "black"
+    line_width 1
+    rectangle 0, 0, W, H
