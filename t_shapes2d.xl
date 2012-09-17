@@ -26,7 +26,7 @@ capture_page "Polygram",
     polygram -100, 0, 200, 200, 5, 3
     star_polygon 100, 0, 200, 200, 5, 3
 capture_page "Star",
-    star 0, 0, 200, 200, 10, 0.1
+    star 0, 0, 200, 200, 10, 0.5
 capture_page "SpeechBalloon",
     speech_balloon 0, 0, 200, 100, 10, 30, -100
 capture_page "Callout",
