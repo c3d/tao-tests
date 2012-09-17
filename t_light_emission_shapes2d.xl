@@ -11,4 +11,5 @@ material_emission 0.0, 0.0, 0.0, 1.0
 light_diffuse 1.0, 1.0, 1.0, 1.0 
 light_specular 1.0, 1.0, 1.0, 1.0
 light 0, false
+color "default"
 PAGE_PREFIX := ""
