@@ -1,0 +1,18 @@
+capture_page "sphere",
+    sphere -200, 0, 0, 150
+    sphere 200
+    sphere 200, 0, 0, 150, 200, 100, 25, 25
+capture_page "torus",
+    rotatex -30
+    torus -200, 0, 0, 300, 0.4
+    torus 200, 0, 0, 300, 250, 200, 50, 25, 0.4
+capture_page "cone",
+    rotatex -120
+    cone 0, 0, 0, 200, 150, 300
+capture_page "cube",
+    rotatey 20
+    rotatex -30
+    cube 0, 0, 0, 150, 200, 180
+capture_page "cylinder",
+    rotatex -30
+    cylinder 0, 0, 0, 200, 100, 300

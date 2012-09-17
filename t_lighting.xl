@@ -5,4 +5,9 @@ import "t_light_diffuse_shapes2d.xl"
 import "t_light_emission_shapes2d.xl"
 import "t_light_specular_shapes2d.xl"
 
+import "t_light_ambient_shapes3d.xl"
+import "t_light_diffuse_shapes3d.xl"
+import "t_light_emission_shapes3d.xl"
+import "t_light_specular_shapes3d.xl"
+
 pop_test_name
