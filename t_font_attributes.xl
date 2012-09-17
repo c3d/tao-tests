@@ -1,0 +1,38 @@
+// Adapted from an online documentation example
+
+capture_page "FontAttributes",
+    text_box 0, 0, window_width - 50, window_height - 50, 
+        font "Times", 16 
+        fattr_write_text // normal
+        italic 
+        fattr_write_text // italic
+        roman 
+        fattr_write_text // back to normal
+        bold 
+        fattr_write_text // bold
+        regular 
+        fattr_write_text // back to normal
+        bold 
+        italic 
+        fattr_write_text // bold and italic
+        plain 
+        fattr_write_text // back to normal
+        font "Times", 16, expanded 
+        fattr_write_text // stretched
+        stretch 1.0 
+        fattr_write_text //  back to normal
+        font "Lobster" 
+        fattr_write_text 
+        font "Tangerine/Bold" 
+        font_size 28 
+        fattr_write_text 
+
+fattr_msg -> <<A quick brown fox jumps over the lazy dog.
+>> 
+fattr_lineno -> 1
+fattr_lineno := 1
+
+fattr_write_text -> 
+    text text fattr_lineno & ". " & fattr_msg
+    fattr_lineno := fattr_lineno + 1 
+
