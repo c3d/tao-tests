@@ -42,6 +42,7 @@ shopt -s nullglob
         if [ "$DIFF" = 0 ] ; then
             echo "  $f: identical"
             IDENTICAL_FILES=$((IDENTICAL_FILES + 1))
+            rm diff_$f
         else
             echo "! $f: $DIFF pixels differ"
             DIFFERENT_FILES=$(($DIFFERENT_FILES + 1))
