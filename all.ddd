@@ -1,15 +1,11 @@
 capture_begin
 
-PAGE_PREFIX := ""
-
 import "t_colors.xl"
 import "t_line_colors.xl"
 import "t_shapes2d.xl"
 import "t_colored_shapes2d.xl"
-import "t_light_ambient_shapes2d.xl"
-import "t_light_diffuse_shapes2d.xl"
-import "t_light_specular_shapes2d.xl"
-import "t_light_emission_shapes2d.xl"
+import "t_lighting.xl"
+import "t_pplighting.xl"
 import "t_gradients.xl"
 import "t_grid.xl"
 import "t_textures.xl"

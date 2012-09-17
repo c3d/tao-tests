@@ -1,5 +1,7 @@
 // Gray shapes with red emission
-PAGE_PREFIX := PAGE_PREFIX & "light_emission_"
+
+push_test_name "emission"
+
 light 0
 light_diffuse 0.0, 0.0, 0.0, 1.0
 light_specular 0.0, 0.0, 0.0, 1.0
@@ -12,4 +14,5 @@ light_diffuse 1.0, 1.0, 1.0, 1.0
 light_specular 1.0, 1.0, 1.0, 1.0
 light 0, false
 color "default"
-PAGE_PREFIX := ""
+
+pop_test_name

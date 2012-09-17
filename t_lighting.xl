@@ -1,0 +1,8 @@
+push_test_name "light"
+
+import "t_light_ambient_shapes2d.xl"
+import "t_light_diffuse_shapes2d.xl"
+import "t_light_emission_shapes2d.xl"
+import "t_light_specular_shapes2d.xl"
+
+pop_test_name

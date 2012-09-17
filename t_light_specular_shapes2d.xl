@@ -1,5 +1,7 @@
 // Gray shapes with red specular lighting
-PAGE_PREFIX := PAGE_PREFIX & "light_specular_"
+
+push_test_name "specular"
+
 light 0
 light_specular 1.0, 0.0, 0.0, 1.0
 material_specular 0.5, 0.5, 0.5, 1.0
@@ -13,4 +15,5 @@ material_ambient 0.2, 0.2, 0.2, 1.0
 light_specular 1.0, 1.0, 1.0, 1.0
 light 0, false
 color "default" // BUG? required
-PAGE_PREFIX := ""
+
+pop_test_name

@@ -21,8 +21,29 @@ DISPLAYMODE -> env "DISPLAYMODE"
 // Absolute or relative to document directory. Must exist or nothing is saved.
 CAPTURE_DIR -> env "CAPTURE_DIR"
 
-// Prepended to capture_page name
-PAGE_PREFIX -> ""
+// Group tests hierarchically
+// Example:
+// push_test_name "foo"
+// push_test_name "bar"
+// capture_page "baz", { ... }
+// pop_test_name
+// pop_test_name
+// ... will create cap_foo_bar_baz.png
+data NameStack
+StackTop := 0
+PAGE_PREFIX ->
+    Ret -> ""
+    Ret := ""
+    for i in 1 .. StackTop loop
+        Ret := Ret & NameStack[i] & "_"
+    Ret
+push_test_name N:text ->
+    StackTop := StackTop + 1
+    NameStack[StackTop] := N
+    //writeln "push_test_name ", N, " => ", PAGE_PREFIX
+pop_test_name ->
+    StackTop := StackTop - 1
+    //writeln "pop_test_name => ", PAGE_PREFIX
 
 cap_dir -> if CAPTURE_DIR <> "" then CAPTURE_DIR & "/" else ""
 cap_path T:text -> cap_dir & "cap_" & T  & ".png"
