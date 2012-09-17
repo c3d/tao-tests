@@ -13,37 +13,37 @@ page "Texture restore window size",
     window_size SavedWidth, SavedHeight
     next_page
 
-capture_page "Texture",
+capture_page "texture",
     show_texture
-capture_page "TextureColored",
+capture_page "textureColored",
     show_texture "yellow"
-capture_page "TextureRotated",
+capture_page "textureRotated",
     rotatez 10
     show_texture
-capture_page "TextureReducedMipmapped",
+capture_page "textureReducedMipmapped",
     translatez -1000
     texture_min_filter "LINEAR_MIPMAP_LINEAR"
     show_texture
-capture_page "TextureReducedNearest",
+capture_page "textureReducedNearest",
     translatez -1000
     texture_min_filter "NEAREST"
     show_texture
-capture_page "TextureEnlargedLinear",
+capture_page "textureEnlargedLinear",
     translatez 500
     texture_mag_filter "LINEAR"
     show_texture
-capture_page "TextureEnlargedNearest",
+capture_page "textureEnlargedNearest",
     translatez 500
     texture_mag_filter "NEAREST"
     show_texture
     translatez -500
-capture_page "TextureReducedDefault",
+capture_page "textureReducedDefault",
     translatez -1000
     show_texture
-capture_page "TextureEnlargedDefault",
+capture_page "textureEnlargedDefault",
     translatez 500
     show_texture
-capture_page "TextureTransform",
+capture_page "texture_transform",
     color "white"
     texture TextureName
     texture_transform
@@ -51,7 +51,7 @@ capture_page "TextureTransform",
         rotatez 40
         translate -0.5, -0.5, 0.0
     rectangle 0, 0, texture_width, texture_height
-capture_page "TextureWrap",
+capture_page "texture_wrap",
     color "white"
     texture TextureName
     texture_transform
