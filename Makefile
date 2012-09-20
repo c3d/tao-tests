@@ -4,6 +4,10 @@
 #   * bash, gmake
 #   * ImageMagick (the 'convert' command)
 #
+# Typical 'configure' command to enable licenses for all modules
+# (including display):
+# ./configure --with-modlic impress modules+=+display_alioscopy modules+=+display_2dplusdepth modules+=+display_tridelity
+#
 # Usage:
 #   $ make ref   # Save reference pics under ./ref
 #   ... Hack and "make install" Tao, or change $PATH ...
