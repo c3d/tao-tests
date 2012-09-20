@@ -18,7 +18,7 @@ check_IM || die "ImageMagick command 'compare' not installed?"
 # Echo the number of pixels that differ in image2 from image1. 0 = identical.
 different_pixels() {
   DIFF=${3-null:}
-  compare -metric ae -compose src $1 $2 $DIFF 2>&1
+  compare -metric ae $1 $2 $DIFF 2>&1
 }
 
 
