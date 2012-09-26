@@ -1,33 +1,66 @@
-capture_page "point",
-    point 0, 0, 0, 4
-capture_page "rectangle",
-    rectangle 0, 0, 200, 100
-capture_page "rounded_rectangle",
-    rounded_rectangle 0, 0, 200, 100, 10
-capture_page "elliptical_rectangle",
-    elliptical_rectangle 0, 0, 200, 100, 0.2
-capture_page "ellipse",
-    ellipse 0, 0, 200, 100
-capture_page "circle",
-    circle 0, 0, 50
-capture_page "ellipse_arc",
-    ellipse_arc 0, 0, 200, 100, 20, 50
-capture_page "triangle",
-    triangle 0, 0, 100, 200
-capture_page "right_triangle",
-    right_triangle 0, 0, 100, 200
-capture_page "arrow",
-    arrow 0, 0, 300, 80, 79, 0.2
-capture_page "double_arrow",
-    double_arrow 0, 0, 300, 80, 79, 0.2
-capture_page "polygon",
-    polygon 0, 0, 200, 200, 5
-capture_page "polygram",
-    polygram -100, 0, 200, 200, 5, 3
-    star_polygon 100, 0, 200, 200, 5, 3
-capture_page "star",
-    star 0, 0, 200, 200, 10, 0.5
-capture_page "speech_balloon",
-    speech_balloon 0, 0, 200, 100, 10, 30, -100
-capture_page "callout",
-    callout 0, 0, 200, 100, 10, 30, -100, 50
+capture_page "point_FrontBack",
+    point 150, 0, 0, 4
+    rotatey 180
+    point 150, 0, 0, 4
+capture_page "rectangle_FrontBack",
+    rectangle 150, 0, 200, 100
+    rotatey 180
+    rectangle 150, 0, 200, 100
+capture_page "rounded_rectangle_FrontBack",
+    rounded_rectangle 150, 0, 200, 100, 10
+    rotatey 180
+    rounded_rectangle 150, 0, 200, 100, 10
+capture_page "elliptical_rectangle_FrontBack",
+    elliptical_rectangle 150, 0, 200, 100, 0.2
+    rotatey 180
+    elliptical_rectangle 150, 0, 200, 100, 0.2
+capture_page "ellipse_FrontBack",
+    ellipse 150, 0, 200, 100
+    rotatey 180
+    ellipse 150, 0, 200, 100
+capture_page "circle_FrontBack",
+    circle 150, 0, 50
+    rotatey 180
+    circle 150, 0, 50
+capture_page "ellipse_arc_FrontBack",
+    ellipse_arc 150, 0, 200, 100, 20, 50
+    rotatey 180
+    ellipse_arc 150, 0, 200, 100, 20, 50
+capture_page "triangle_FrontBack",
+    triangle 150, 0, 100, 200
+    rotatey 180
+    triangle 150, 0, 100, 200
+capture_page "right_triangle_FrontBack",
+    right_triangle 150, 0, 100, 200
+    rotatey 180
+    right_triangle 150, 0, 100, 200
+capture_page "arrow_FrontBack",
+    arrow 150, 0, 300, 80, 79, 0.2
+    rotatey 180
+    arrow 150, 0, 300, 80, 79, 0.2
+capture_page "double_arrow_FrontBack",
+    double_arrow 150, 0, 300, 80, 79, 0.2
+    rotatey 180
+    double_arrow 150, 0, 300, 80, 79, 0.2
+capture_page "polygon_FrontBack",
+    polygon 150, 0, 200, 200, 5
+    rotatey 180
+    polygon 150, 0, 200, 200, 5
+capture_page "polygram_FrontBack",
+    polygram 150, 100, 200, 200, 5, 3
+    star_polygon 150, -100, 200, 200, 5, 3
+    rotatey 180
+    polygram 150, 100, 200, 200, 5, 3
+    star_polygon 150, -100, 200, 200, 5, 3
+capture_page "star_FrontBack",
+    star 150, 0, 200, 200, 10, 0.5
+    rotatey 180
+    star 150, 0, 200, 200, 10, 0.5
+capture_page "speech_balloon_FrontBack",
+    speech_balloon 150, 0, 200, 100, 10, 30, -100
+    rotatey 180
+    speech_balloon 150, 0, 200, 100, 10, 30, -100
+capture_page "callout_FrontBack",
+    callout 150, 0, 200, 100, 10, 30, -100, 50
+    rotatey 180
+    callout 150, 0, 200, 100, 10, 30, -100, 50

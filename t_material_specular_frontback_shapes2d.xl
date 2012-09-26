@@ -1,0 +1,20 @@
+// White specular lighting with back and front materials (red front, blue back)
+
+push_test_name "specular_FrontBack"
+
+light 0
+light_specular 1.0, 1.0, 1.0, 0.0
+light_diffuse 0.0, 0.0, 0.0, 0.0
+light_ambient 0.0, 0.0, 0.0, 0.0
+material_front_specular 1.0, 0.0, 0.0, 1.0
+material_back_specular 0.0, 0.0, 1.0, 1.0
+import "t_shapes2d.xl"
+// Restore default values
+material_front_specular 0.0, 0.0, 0.0, 1.0 
+material_back_specular 0.0, 0.0, 0.0, 1.0 
+light_diffuse 1.0, 1.0, 1.0, 0.0
+light_specular 1.0, 1.0, 1.0, 0.0
+light_ambient 0.0, 0.0, 0.0, 0.0 
+light 0, false
+
+pop_test_name

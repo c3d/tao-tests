@@ -1,0 +1,20 @@
+// White ambient lighting with back and front materials (red front, blue back)
+
+push_test_name "ambient_FrontBack"
+
+light 0
+light_specular 0.0, 0.0, 0.0, 0.0
+light_diffuse 0.0, 0.0, 0.0, 0.0
+light_ambient 1.0, 1.0, 1.0, 0.0
+material_front_ambient 1.0, 0.0, 0.0, 1.0
+material_back_ambient 0.0, 0.0, 1.0, 1.0
+import "t_shapes2d.xl"
+// Restore default values
+material_front_ambient 0.2, 0.2, 0.2, 1.0
+material_back_ambient 0.2, 0.2, 0.2, 1.0
+light_diffuse 1.0, 1.0, 1.0, 0.0
+light_specular 1.0, 1.0, 1.0, 0.0
+light_ambient 0.0, 0.0, 0.0, 0.0 
+light 0, false
+
+pop_test_name
