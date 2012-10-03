@@ -14,6 +14,7 @@ import "t_textures.xl"
 import "t_fonts.xl"
 import "t_font_attributes.xl"
 import "t_text_justification.xl"
+import "t_glyph_cache.xl"
 import "t_displaymodes.xl"
 
 capture_end
