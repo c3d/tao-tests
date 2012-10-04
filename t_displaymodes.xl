@@ -1,10 +1,13 @@
+display_test "2DFBO" // alternative implem, not in menus
 display_test "2dplusdepth"
+display_test "2dplusdepth_declipse"
 display_test "alioscopy"
 display_test "anaglyph"
 display_test "checkerboard"
+display_test "checkerboard_shader" // alternative implem, not in menus
 display_test "hintstereo"
-// CRASH
-// display_test "quadstereo"
+//-- CRASH
+//-- display_test "quadstereo"
 display_test "hsplitstereo"
 display_test "vsplitstereo"
 display_test "hframepacking"
@@ -21,8 +24,17 @@ display_test Name:text ->
         next_page
     capture_page Name,
         display_mode Name
-        translatez 200
-        rectangle 0, 0, 200, 100
+        locally
+            translatez -1000
+            color "blue"
+            rectangle -200, 0, 200, 100
+            color "red"
+            triangle 200, 200, 100, 200
+            color "green"
+            circle 200, -200, 100
+        locally
+            translatez 200
+            rectangle 0, 0, 200, 100
     page Name & " restore 2D",
         display_mode "2D"
         next_page
