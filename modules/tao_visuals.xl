@@ -1,0 +1,16 @@
+import TaoVisuals
+
+capture_page "tao_visuals",
+    tv_language := "en"
+    tv_tagline := "geeks"
+    tv_taodyne_logo 0, 80, 200, 100
+    tv_language := "fr"
+    tv_tagline := "dev"
+    tv_taodyne_logo 0, -80, 200, 100
+
+    color_rect ColorName:text ->
+        color ColorName
+        rectangle 0, 0, 25, 20
+        translatex 25
+    translatex -80
+    color_rect with "tao_red", "tao_orange", "tao_yellow", "tao_green", "tao_sea", "tao_light_blue", "tao_dark_blue", "tao_magenta"

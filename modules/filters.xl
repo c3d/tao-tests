@@ -1,0 +1,29 @@
+import Filters 1.0
+
+filtering ->
+    color "white"
+    texture "images/lena.jpg"
+    rectangle -400, 0, 500, 500
+    //Detect outlines
+    laplacian 1
+    //Add some blur
+    gaussian 5
+    rectangle 400, 0, 500, 500
+
+legend ->
+    locally
+        color "red"
+        arrow 0, 0, 200, 175, 75, 55%
+    locally
+        color "black"
+        text_box 25, -75, 200, 200,
+            font_size 35
+            bold
+            text "Filtering"
+
+
+capture_page "filters",
+    S -> window_width/1500
+    scale S, S, 1.0
+    legend
+    filtering

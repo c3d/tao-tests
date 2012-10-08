@@ -1,0 +1,24 @@
+
+import Shading 
+
+ww -> window_width / 2
+
+capture_page "celshading",
+    light 0
+    light_position -500, 500, 100
+    cel_color 0.7, 0.7, 1.0 
+    cel_shading 
+    rotatex 140 
+    torus 0, 0, 0, ww, ww, ww, 50, 50, 0.25 
+
+capture_page "goochshading",
+    light 0
+    light_position -500, 500, 100
+    cool_color 0, 0.2, 0.3 
+    cool_diffuse 0.045 
+    warm_color 0.3, 0, 0 
+    warm_diffuse 0.45 
+    surface_color 0, 0, 0 
+    gooch_shading 
+    rotatex 140 
+    torus 0, 0, 0, ww, ww, ww, 50, 50, 0.25

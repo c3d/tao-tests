@@ -1,0 +1,18 @@
+import Flares
+
+Nb -> 6
+S -> window_height * 30%
+R -> window_height * 35%
+
+animated_star 0, M:integer -> nil
+animated_star N:integer, M:integer ->
+    locally
+        flares 8000, 2.0
+        Sx -> R * cos(2 * pi * (real N/M))
+        Sy -> R * sin(2 * pi * (real N/M))
+        star Sx, Sy, S, S, 5, 0.4
+    animated_star N-1, M
+animated_star N:integer -> animated_star N, N
+
+capture_page "flares",
+    animated_star Nb

@@ -1,0 +1,10 @@
+import Monjori
+
+
+capture_page "monjori",
+    texture_transform
+        translate 0.5, 0.5, 0
+        rotatez 5
+        translate -0.5, -0.5, 0
+    monjori 3000
+    rounded_rectangle 0, 0, window_width*80%, window_height*80%, 20

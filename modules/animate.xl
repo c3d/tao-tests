@@ -1,0 +1,6 @@
+import Animate
+
+
+capture_page "animate",
+    compute_smooth_step
+    circle 100 * smooth_step, 0, 20

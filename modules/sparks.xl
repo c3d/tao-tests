@@ -1,0 +1,14 @@
+import Sparks
+
+capture_page "sparks",
+    ww -> window_width
+    texture ""
+    // Couleur des éclairs
+    color 0.0, 0.7, 1.0, 1.0
+    // Couleur du fond
+    sparks_color 0.1, 0.1, 0.1, 1.0
+    // Activation de l'effet
+    sparks 0.3, 1000, 1000
+    // Dessin d'un tore
+    rotatex 20
+    torus 0, 0, 0, ww, ww, ww / 2, 50, 50, 0.3
