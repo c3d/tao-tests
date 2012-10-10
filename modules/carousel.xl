@@ -32,4 +32,4 @@ capture_page "carousel",
 // Reset default values
 light_position 0, 0, 1
 light 0, false
-camera_position 0, 0,  6000
+camera_position 0, 0,  3000
