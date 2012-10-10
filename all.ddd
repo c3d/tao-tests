@@ -19,7 +19,7 @@ import "t_font_attributes.xl"
 import "t_text_justification.xl"
 import "t_glyph_cache.xl"
 import "t_displaymodes.xl"
-import "modules.ddd" 
+import "t_modules.xl" 
 
 
 capture_end
