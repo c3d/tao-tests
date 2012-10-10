@@ -1,0 +1,18 @@
+import PointCloud
+
+Cree -> 1
+if Cree = 0 then
+    cloud_only ""
+    for i in -5 .. 5 loop 
+        for j in -5 .. 5 loop 
+            for k in -5 .. 5 loop 
+                cloud_add "Cube", i * 20, j * 20, k * 20
+    cloud_point_size "Cube", 3
+    Cree := 1
+
+capture_page "Cube",
+    clear_color 0, 0, 0, 1
+    rotatey 45
+    rotatex 40
+    color_hsv 180, 1.0, 0.7
+    cloud "Cube"

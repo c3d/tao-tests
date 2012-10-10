@@ -1,4 +1,7 @@
-capture_begin
+import "capture.xl" 
+
+
+capture_begin 
 
 import "t_colors.xl"
 import "t_line_colors.xl"
@@ -14,6 +17,9 @@ import "t_textures.xl"
 import "t_fonts.xl"
 import "t_font_attributes.xl"
 import "t_text_justification.xl"
+import "t_glyph_cache.xl"
 import "t_displaymodes.xl"
+import "t_modules.xl" 
+
 
 capture_end

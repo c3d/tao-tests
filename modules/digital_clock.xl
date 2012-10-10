@@ -1,0 +1,4 @@
+import DigitalClock 1.0
+
+capture_page "digital_clock",
+    digital_clock 0, 0, 40

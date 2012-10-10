@@ -1,0 +1,6 @@
+import LoremIpsum
+
+
+capture_page "lorem_ipsum",
+    text (lorem_ipsum 30)
+    text "----"

@@ -1,0 +1,24 @@
+push_test_name "module"
+
+clear_color 1, 1, 1, 1
+
+import "modules/animate.xl"
+import "modules/carousel.Xl"
+import "modules/depth_of_field.xl"
+import "modules/digital_clock.xl"
+import "modules/filters.xl"
+import "modules/flares.xl"
+import "modules/glow.xl"
+import "modules/lens_flare.xl"
+import "modules/lorem_ipsum.xl"
+import "modules/mapping.xl"
+import "modules/materials.xl"
+import "modules/monjori.xl"
+import "modules/point_cloud.xl"
+import "modules/revolving_texts.xl"
+import "modules/shading.xl"
+import "modules/sparks.xl"
+import "modules/tao_visuals.xl"
+import "modules/water_surface.xl"
+
+pop_test_name
