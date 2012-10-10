@@ -28,8 +28,8 @@ different_pixels() {
 }
 
 
-REFDIR=$1; shift
-OUTDIR=$1; shift
+REFDIR=${1-./ref}; shift
+OUTDIR=${1-./out}; shift
 
 [ "$OUTDIR" ] || usage
 
