@@ -23,6 +23,7 @@ balls ->
 
 ball N ->
     locally
+        S -> 400
         color "white"
         locally
             light 0, false
@@ -61,4 +62,4 @@ set_focus_distance ->
         writeln DOF_FOCAL_DEPTH
     else
         DOF_SHOWFOCUS := 0
-        DOF_FOCAL_DEPTH := Near + (Far - Near) * 0.5 * (1 + sin page_time)
+        DOF_FOCAL_DEPTH := Near + (Far - Near)
