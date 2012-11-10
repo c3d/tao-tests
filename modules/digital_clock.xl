@@ -1,4 +1,8 @@
 import DigitalClock 1.0
 
 capture_page "digital_clock",
+    // mini-BUG: the clock always uses local timezone so even though
+    // we set a fixed time (dc_time) the output will change if the
+    // timezone or if the DST status changes (Daylight Saving Time)
+    dc_time := 1349879948
     digital_clock 0, 0, 40
