@@ -3,6 +3,7 @@ import "capture.xl"
 
 capture_begin 
 
+
 import "t_colors.xl"
 import "t_line_colors.xl"
 import "t_shapes2d.xl"
@@ -14,6 +15,7 @@ import "t_colored_shapes3d.xl"
 import "t_gradients.xl"
 import "t_grid.xl"
 import "t_textures.xl"
+import "t_multitextures.xl"
 import "t_fonts.xl"
 import "t_font_attributes.xl"
 import "t_text_justification.xl"
