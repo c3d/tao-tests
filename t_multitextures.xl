@@ -1,0 +1,194 @@
+import "capture.xl"
+
+tex0 -> 0
+tex1 -> 0
+tex2 -> 0
+
+page "MultiTexture create",
+    locally
+        frame_texture 202, 101,
+            color "white", 0.8
+            rectangle 202, 101
+            color "red", 0.9
+            line_color "blue", 0.5
+            ellipse 0, 0, 103, 105
+        tex0 := texture
+    locally
+        frame_texture 303, 303,
+            line_color "pink", 0.5
+            rounded_rectangle_in_frame with 1..60
+            rounded_rectangle_in_frame N:integer ->
+                color_hsv N*6, 0.9, 0.9, 0.4
+                rounded_rectangle 100, 0, 167 + 2*N, 27, 5
+                rotatez 6
+        tex1 := texture
+    locally
+        frame_texture 512, 128,
+            color "black", 0.3
+            rectangle 500, 120
+            color "white", 0.9
+            text_box 0, 0, 512, 128,
+                font "Arial", 70
+                align 0.5
+                vertical_align 0.5
+                text "Hello"
+        tex2 := texture
+    next_page
+
+multitexture_pages with 0..6
+multitexture_pages N:integer ->
+    capture_page "multitexture_select" & text N,
+        color "white"
+        show_multitexture N,
+            multitexture_fullquad
+    capture_page "multitexture_black" & text N,
+        color "black"
+        show_multitexture N, 
+            multitexture_fullquad
+
+    capture_page "multitexture_color_and_rotate" & text N,
+        color "lightyellow"
+        show_multitexture N,
+            rotatez 10
+            multitexture_fullquad
+    capture_page "multitexture_overlap_with_transparency" & text N,
+        color "lightpink"
+        show_multitexture N,
+            rotatez 10
+            multitexture_fullquad
+            rotatez 10
+            multitexture_fullquad
+
+    capture_page "multitexture_text_path" & text N,
+        color "red"
+        show_multitexture N,
+            path
+                font "Times", 300
+                text "Text Path"
+
+    capture_page "multitexture_text" & text N,
+        color "red"
+        show_multitexture N,
+            text_box 0, 0, window_width, window_height,
+                align 0.5
+                vertical_align 0
+                font "Ubuntu", 280
+                text "Text Box"
+            text_box 0, 0, window_width, window_height,
+                align 0.5
+                vertical_align 1.0
+                font "Coming Soon", 80
+                text "Coming Soon"
+
+
+    capture_page "multitexture_wrap" & text N,
+        color "grey"
+        show_multitexture N,
+            texture_unit 0
+            texture_transform
+                scale 2, 3, 1
+            texture_wrap true, true
+
+            texture_unit 2
+            texture_transform
+                scale 3, 2, 1
+            texture_wrap true, true
+
+            texture_unit 1
+            texture_transform
+                scale 2.0, 2.0, 1.0
+            texture_wrap false, false
+            multitexture_quad 2, 2, 0, 0
+            texture_wrap false, true
+            multitexture_quad 2, 2, 0, 1
+            texture_wrap true, false
+            multitexture_quad 2, 2, 1, 0
+            texture_wrap true, true
+            multitexture_quad 2, 2, 1, 1
+
+    capture_page "multitexture_transforms" & text N,
+        color "darkgrey"
+        show_multitexture N,
+
+            locally
+                texture_unit 0
+                texture_transform
+                    rotatez 10
+                multitexture_quad 3, 3, 0, 0
+                texture_unit 1
+                texture_transform
+                    rotatex 20
+                multitexture_quad 3, 3, 1, 0
+                texture_unit 2
+                texture_transform
+                    rotatey 30
+                multitexture_quad 3, 3, 2, 0
+
+            locally
+                texture_unit 0
+                texture_transform
+                    scalex 0.5
+                multitexture_quad 3, 3, 0, 1
+                texture_unit 0
+                texture_transform
+                    scaley 1.5
+                multitexture_quad 3, 3, 1, 1
+                texture_unit 0
+                texture_transform
+                    scalez 2
+                multitexture_quad 3, 3, 2, 1
+
+            locally
+                texture_unit 0
+                texture_transform
+                    translatex 0.1
+                multitexture_quad 3, 3, 0, 2
+                texture_unit 0
+                texture_transform
+                    translatey 1.5
+                texture_wrap true, true
+                multitexture_quad 3, 3, 1, 2
+                texture_unit 0
+                texture_transform
+                    scalez 10
+                texture_wrap true, true
+                multitexture_quad 3, 3, 2, 2
+
+show_multitexture -> show_multitexture "white"
+
+show_multitexture N:integer, Body ->
+    locally
+        if (N and 1) = 0 then
+            texture_unit 0
+            texture tex0
+        if (N and 2) = 0 then
+            texture_unit 1
+            texture tex1
+        if (N and 4) = 0 then
+            texture_unit 2
+            texture tex2
+        scale 0.5, 0.5, 0.5
+        locally
+            translate -window_width/2, -window_height/2, 0
+            texture_mode "MODULATE"
+            Body
+        locally
+            translate -window_width/2, window_height/2, 0
+            texture_mode "DECAL"
+            Body
+        locally
+            translate window_width/2, -window_height/2, 0
+            texture_mode "BLEND"
+            Body
+        locally
+            translate window_width/2, window_height/2, 0
+            texture_mode "REPLACE"
+            Body
+
+multitexture_fullquad -> rectangle 0, 0, window_width, window_height
+
+multitexture_quad NX, NY, X, Y ->
+    locally
+        translate -window_width/2, window_height/2, 0
+        scale window_width/NX, window_height/NY, 1
+        rectangle X+0.5, -0.5-Y, 1, 1

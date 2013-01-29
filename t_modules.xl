@@ -3,7 +3,7 @@ push_test_name "module"
 clear_color 1, 1, 1, 1
 
 import "modules/animate.xl"
-import "modules/carousel.Xl"
+import "modules/carousel.xl"
 import "modules/depth_of_field.xl"
 import "modules/digital_clock.xl"
 import "modules/filters.xl"
