@@ -41,6 +41,7 @@ multitexture_pages N:integer ->
         color "white"
         show_multitexture N,
             multitexture_fullquad
+
     capture_page "multitexture_black" & text N,
         color "black"
         show_multitexture N, 
@@ -153,6 +154,7 @@ multitexture_pages N:integer ->
                     scalez 10
                 texture_wrap true, true
                 multitexture_quad 3, 3, 2, 2
+
 
 show_multitexture -> show_multitexture "white"
 
