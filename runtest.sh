@@ -53,6 +53,7 @@ fi
 [ "$CAPTURE_DIR" ] || export CAPTURE_DIR=out
 
 [ -e "$CAPTURE_DIR" ] || mkdir -p "$CAPTURE_DIR"
+"$TAO" --version > "$CAPTURE_DIR"/version
 
 WRAPFILE=""
 # If $1 is a .xl file, create a .ddd file that can be run by itself
