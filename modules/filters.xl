@@ -1,29 +1,21 @@
 import Filters 1.0
 
-filtering ->
-    color "white"
-    texture "images/lena.jpg"
-    rectangle -400, 0, 500, 500
-    //Detect outlines
-    laplacian 1
-    //Add some blur
+Filter T:text, F:code ->
+    capture_page "filter_" & T,
+        color "white"
+        texture "C:\Users\Psy\tests\images\lena.jpg"
+        do F
+        rectangle 0, 0, 500, 500
+
+Filter "gaussian",
     gaussian 5
-    rectangle 400, 0, 500, 500
-
-legend ->
-    locally
-        color "red"
-        arrow 0, 0, 200, 175, 75, 55%
-    locally
-        color "black"
-        text_box 25, -75, 200, 200,
-            font_size 35
-            bold
-            text "Filtering"
-
-
-capture_page "filters",
-    S -> window_width/1500
-    scale S, S, 1.0
-    legend
-    filtering
+Filter "mean",
+    mean 5
+Filter "emboss",
+    emboss 1
+Filter "sharpness",
+    sharpness 1
+Filter "black_and_white",
+    black_and_white
+Filter "erode",
+    erode 0, 1, 0.3

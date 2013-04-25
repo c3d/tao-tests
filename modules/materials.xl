@@ -1,7 +1,13 @@
 
-import Materials 1.0 
-import Mapping 1.0 
+import Materials 1.0
+import Mapping 1.0
 
+RIGHT -> "brightday2_negative_x.jpg"
+LEFT -> "brightday2_positive_x.jpg"
+TOP -> "brightday2_positive_y.jpg"
+BOTTOM -> "brightday2_negative_y.jpg"
+FRONT -> "brightday2_positive_z.jpg"
+BACK -> "brightday2_negative_z.jpg"
 
 
 // ============================================================================
@@ -9,21 +15,36 @@ import Mapping 1.0
 //                                   PAGES
 //
 // ============================================================================
-capture_page "Materials",
+capture_page "materials",
 // -------------------------------------------------
 //    Main scene
 // -------------------------------------------------
-    locally 
-        wood 100 
-        sphere 200, 0, 0, 200 
-    locally 
-        granite 100 
-        sphere -200, 0, 0, 200 
-    locally 
-        marble 100 
-        sphere 0, 200, 0, 200 
+    light 0
+    light_position -15000, 15000, 0
+    locally
+        wood 100
+        sphere 200, 0, 0, 200
+    locally
+        granite 100
+        sphere -200, 0, 0, 200
+    locally
+        marble 100
+        sphere 0, 200, 0, 200
+    locally
+        color "white"
+        rotatey time * 20
+        cube_map 1024,
+            cube_map_flip true, true
+            cube_map_face 0, RIGHT
+            cube_map_face 1, LEFT
+            cube_map_face 2, TOP
+            cube_map_face 3, BOTTOM
+            cube_map_face 4, FRONT
+            cube_map_face 5, BACK
+        water
+        sphere 0, 0, 0, 200
+
     // Top final
-    locally 
-        color 1.0, 0.5, 0.5, 1.0 
-        plastic 
+    locally
+        color 1.0, 0.5, 0.5, 1.0
         sphere 0, -200, 0, 200
