@@ -3,6 +3,7 @@ capture_page "glyph_cache",
     text_box 0, 0, window_width*50%, window_height*50%,
         vertical_align_center
         align_center
+        font "Times"
         font_size 60
         text "The quick brown fox jumps over the lazy dog"
     enable_glyph_cache false
