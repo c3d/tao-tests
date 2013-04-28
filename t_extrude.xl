@@ -90,6 +90,9 @@ capture_extrude_page Title:text, Body ->
 
         Body
 
+        color "pink"
+        sphere 0, 0, -300, 300
+
         color "darkgreen"
         rectangle 300, 200, 150, 100
 
@@ -117,6 +120,77 @@ capture_extrude_page Title:text, Body ->
         light_position 1000, 1000, 1000
         rotatey -20
         rotatex -10
+
+        Body
+
+        color "transparent"
+        rectangle 300, 200, 150, 100
+        rounded_rectangle -300, 200, 150, 100, 20
+        ellipse -300, -200, 150, 100
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            text "Hello "
+            font "Arial", 180
+            text "World"
+
+    capture_page Title & "_radius_10_smooth",
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey -30
+        rotatex -15
+        extrude_radius 10
+
+        Body
+
+        color "red"
+        rectangle 300, 200, 150, 100
+        rounded_rectangle -300, 200, 150, 100, 20
+        ellipse -300, -200, 150, 100
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            text "Hello "
+            font "Arial", 180
+            text "World"
+
+    capture_page Title & "_radius_10_edge",
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey 15
+        rotatex 25
+        extrude_radius 10
+        extrude_count -1
+
+        Body
+
+        color "blue"
+        rectangle 300, 200, 150, 100
+        rounded_rectangle -300, 200, 150, 100, 20
+        ellipse -300, -200, 150, 100
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            text "Hello "
+            font "Arial", 180
+            text "World"
+
+    capture_page Title & "_radius_10_border",
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey 20
+        rotatex -15
+        extrude_radius 10
+        extrude_count -1
 
         Body
 
