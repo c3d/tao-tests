@@ -1,5 +1,51 @@
 import Materials
 
+// Gray shapes with red diffuse lighting 
+
+extrude_shape_test Name:text, Body ->
+    push_test_name Name
+    locally
+        light 0
+        light_position 1000, 1000, 1000
+        Body
+        import "t_shapes2d.xl"
+
+    pop_test_name
+
+extrude_shape_tests Name:text, Body ->
+    extrude_shape_test Name, Body
+    push_test_name "line"
+    extrude_shape_test Name,
+        line_color "pink"
+        Body
+    pop_test_name
+
+extrude_shape_tests "extrude_depth_25",
+    rotatex -10
+    rotatey -25
+    extrude_depth 25
+    color "blue"
+extrude_shape_tests "extrude_depth_25_radius_5_smooth",
+    rotatex -15
+    rotatey -30
+    extrude_depth 25
+    extrude_radius 5
+    color "red"
+extrude_shape_tests "extrude_depth_25_radius_5_edge",
+    rotatex -20
+    rotatey -30
+    extrude_depth 25
+    extrude_radius 25
+    extrude_count -1
+    color "purple"
+extrude_shape_tests "extrude_depth_25_radius_5_material",
+    rotatex -25
+    rotatey 205
+    extrude_depth 55
+    extrude_radius 10
+    granite 0.5
+    color "white"
+
 capture_extrude_page "extrude_depth_0",
     extrude_depth 0
 capture_extrude_page "extrude_depth_5",
