@@ -2,6 +2,7 @@
 
 push_test_name "ambient_FrontBack"
 
+color "white"
 light 0
 light_specular 0.0, 0.0, 0.0, 0.0
 light_diffuse 0.0, 0.0, 0.0, 0.0

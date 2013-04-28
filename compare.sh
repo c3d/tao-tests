@@ -52,6 +52,9 @@ shopt -s nullglob
         else
             echo "! $f: $DIFF pixels differ"
             DIFFERENT_FILES=$(($DIFFERENT_FILES + 1))
+            if [ "$OPENDIFF" != "" ]; then
+                open ../$REFDIR/$f $f diff_$f
+            fi
         fi
     else
         echo "  !! Only in $OUTDIR: $f"

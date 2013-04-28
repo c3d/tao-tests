@@ -1,0 +1,48 @@
+import LoremIpsum
+
+capture_page "text_layout",
+    align 0.5
+    vertical_align 0.5
+    font "Times", 16
+
+    text_with -300, 200, "paragraph_space 10,10",
+        paragraph_space 10, 10
+    text_with 0, 0, "reference", false
+    text_with 300, 200, "line_spacing 1.2",
+        line_spacing 1.2
+    text_with 0, 200, "line_spacing 0.8",
+        line_spacing 0.8
+    text_with -300, 0, "word_spacing 1.5",
+        word_spacing 1.5
+    text_with -300, -200, "word_spacing 0.8",
+        word_spacing 0.8
+    text_with 0, -200, "word_spacing+spread",
+        align 0.0, 1.0, 0.8, 0.0
+        word_spacing 0.8
+    text_with 300, -200, "word_space",
+        align 1.0, 1.0
+        word_space 10, 10
+    text_with 300, 0, "word_space centered",
+        align 0.5, 1.0
+        word_space 2, 2
+
+    text_with X, Y, Name, Body ->
+        locally
+            color "lightgray"
+            rectangle X, Y, 295, 195
+        text_box X, Y, 290, 190,
+            text_span
+                color "red"
+                font "Arial", 20
+                text Name
+                paragraph_break
+
+            Body
+            text "Hello"
+            line_break
+            text "World "
+            text lorem_ipsum 20
+            paragraph_break
+            text lorem_ipsum 10
+            paragraph_break
+            text lorem_ipsum 20
