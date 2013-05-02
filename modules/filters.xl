@@ -3,7 +3,7 @@ import Filters 1.0
 Filter T:text, F:code ->
     capture_page "filter_" & T,
         color "white"
-        texture "C:\Users\Psy\tests\images\lena.jpg"
+        texture "lena.jpg"
         do F
         rectangle 0, 0, 500, 500
 
