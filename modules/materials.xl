@@ -32,7 +32,6 @@ capture_page "materials",
         sphere 0, 200, 0, 200
     locally
         color "white"
-        rotatey time * 20
         cube_map 1024,
             cube_map_flip true, true
             cube_map_face 0, RIGHT
