@@ -62,8 +62,10 @@ shopt -s nullglob
   done
   cd - >/dev/null
 }
+TOTAL_FILES=$((IDENTICAL_FILES + DIFFERENT_FILES))
 
 echo
 echo "Summary:"
 echo "  identical: $IDENTICAL_FILES files"
 echo "  different: $DIFFERENT_FILES files"
+echo "      total: $TOTAL_FILES files"
