@@ -44,7 +44,7 @@ multitexture_pages N:integer ->
 
     capture_page "multitexture_black" & text N,
         color "black"
-        show_multitexture N, 
+        show_multitexture N,
             multitexture_fullquad
 
     capture_page "multitexture_color_and_rotate" & text N,
@@ -163,12 +163,24 @@ show_multitexture N:integer, Body ->
         if (N and 1) = 0 then
             texture_unit 0
             texture tex0
+        else
+            texture_unit 0
+            texture ""
+
         if (N and 2) = 0 then
             texture_unit 1
             texture tex1
+        else
+            texture_unit 1
+            texture ""
+
         if (N and 4) = 0 then
             texture_unit 2
             texture tex2
+        else
+            texture_unit 2
+            texture ""
+
         scale 0.5, 0.5, 0.5
         locally
             translate -window_width/2, -window_height/2, 0
