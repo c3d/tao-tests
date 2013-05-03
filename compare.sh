@@ -51,7 +51,7 @@ shopt -s nullglob
             rm -f diff_$f
         else
             echo "! $f: $DIFF pixels differ"
-            DIFFERENT_FILES=$(($DIFFERENT_FILES + 1))
+            DIFFERENT_FILES=$((DIFFERENT_FILES + 1))
             if [ "$OPENDIFF" != "" ]; then
                 open ../$REFDIR/$f $f diff_$f
             fi
