@@ -1,6 +1,6 @@
 import PointCloud
 
-Cree -> 1
+Cree -> 0
 if Cree = 0 then
     cloud_only ""
     for i in -5 .. 5 loop 
