@@ -3,13 +3,13 @@ import "capture.xl"
 
 capture_begin 
 
-
 import "t_colors.xl"
 import "t_line_colors.xl"
 import "t_shapes2d.xl"
 import "t_colored_shapes2d.xl"
 import "t_material.xl"
 import "t_lighting.xl"
+import "t_extrude.xl"
 import "t_pplighting.xl"
 import "t_colored_shapes3d.xl"
 import "t_gradients.xl"
@@ -19,9 +19,9 @@ import "t_multitextures.xl"
 import "t_fonts.xl"
 import "t_font_attributes.xl"
 import "t_text_justification.xl"
+import "t_text_layout.xl"
 import "t_glyph_cache.xl"
 import "t_displaymodes.xl"
 import "t_modules.xl" 
-
 
 capture_end

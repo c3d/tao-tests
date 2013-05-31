@@ -1,0 +1,256 @@
+import Materials
+
+// Gray shapes with red diffuse lighting 
+
+extrude_shape_test Name:text, Body ->
+    push_test_name Name
+    locally
+        light 0
+        light_position 1000, 1000, 1000
+        Body
+        import "t_shapes2d.xl"
+
+    pop_test_name
+
+extrude_shape_tests Name:text, Body ->
+    extrude_shape_test Name, Body
+    push_test_name "line"
+    extrude_shape_test Name,
+        line_color "pink"
+        Body
+    pop_test_name
+
+extrude_shape_tests "extrude_depth_25",
+    rotatex -10
+    rotatey -25
+    extrude_depth 25
+    color "blue"
+extrude_shape_tests "extrude_depth_25_radius_5_smooth",
+    rotatex -15
+    rotatey -30
+    extrude_depth 25
+    extrude_radius 5
+    color "red"
+extrude_shape_tests "extrude_depth_25_radius_5_edge",
+    rotatex -20
+    rotatey -30
+    extrude_depth 25
+    extrude_radius 25
+    extrude_count -1
+    color "purple"
+extrude_shape_tests "extrude_depth_25_radius_5_material",
+    rotatex -25
+    rotatey 205
+    extrude_depth 55
+    extrude_radius 10
+    granite 0.5
+    color "white"
+
+capture_extrude_page "extrude_depth_0",
+    extrude_depth 0
+capture_extrude_page "extrude_depth_5",
+    extrude_depth 5
+capture_extrude_page "extrude_depth_25",
+    extrude_depth 25
+capture_extrude_page "extrude_depth_0_line_width_0",
+    line_width 0
+    extrude_depth 0
+capture_extrude_page "extrude_depth_5_line_width_0",
+    line_width 0
+    extrude_depth 5
+capture_extrude_page "extrude_depth_25_line_width_0",
+    line_width 0
+    extrude_depth 25
+capture_extrude_page "extrude_depth_5_line_color_line_width_4",
+    line_color "yellow"
+    line_width 4
+    extrude_depth 5
+capture_extrude_page "extrude_depth_25_line_color_line_width_4",
+    line_color "yellow"
+    line_width 4
+    extrude_depth 25
+capture_extrude_page "extrude_depth_5_line_color_line_width_40",
+    line_color "yellow"
+    line_width 40
+    extrude_depth 5
+capture_extrude_page "extrude_depth_25_line_color_line_width_40",
+    line_color "yellow"
+    line_width 40
+    extrude_depth 25
+capture_extrude_page "extrude_depth_5_line_color_line_width_0",
+    line_color "orange"
+    line_width 0
+    extrude_depth 5
+capture_extrude_page "extrude_depth_25_line_color_line_width_0",
+    line_color "orange"
+    line_width 0
+    extrude_depth 25
+capture_extrude_page "extrude_depth_transparent_interior",
+    line_color "green"
+    line_width 10
+    extrude_depth 25
+    show 0.5
+capture_extrude_page "extrude_depth_with_texture",
+    line_color "green"
+    line_width 3
+    extrude_depth 35
+    texture ":/images/Taodyne-Logo.png"
+capture_extrude_page "extrude_depth_with_texture_touch_borders",
+    line_color "green"
+    line_width 3
+    extrude_depth 35
+    texture ":/images/Taodyne-Logo.png"
+    texture_transform
+        scale 0.3
+capture_extrude_page "extrude_depth_with_texture_backface",
+    rotatey 180
+    line_color "red"
+    line_width 3
+    extrude_depth 35
+    texture ":/images/Taodyne-Logo.png"
+capture_extrude_page "extrude_depth_with_texture_touch_borders_backface",
+    rotatey 180
+    line_color "red"
+    line_width 3
+    extrude_depth 35
+    texture ":/images/Taodyne-Logo.png"
+    texture_transform
+        scale 0.3
+capture_extrude_page "extrude_depth_with_wood_texture",
+    extrude_depth 45
+    wood 0.3
+capture_extrude_page "extrude_depth_with_marble_texture",
+    extrude_depth 45
+    marble 0.67
+capture_extrude_page "extrude_depth_with_granite_texture",
+    extrude_depth 45
+    granite 0.67
+
+
+capture_extrude_page Title:text, Body ->
+    capture_page Title,
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey -40
+        rotatex -30
+
+        Body
+
+        color "pink"
+        sphere 0, 0, -300, 300
+
+        color "darkgreen"
+        rectangle 300, 200, 150, 100
+
+        color "darkred"
+        rounded_rectangle -300, 200, 150, 100, 20
+
+        color "orange"
+        ellipse -300, -200, 150, 100
+
+        color "purple"
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            color "darkgrey"
+            text "Hello "
+            font "Arial", 180
+            color "darkblue"
+            text "World"
+
+    capture_page Title & "_outline_only",
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey -20
+        rotatex -10
+
+        Body
+
+        color "transparent"
+        rectangle 300, 200, 150, 100
+        rounded_rectangle -300, 200, 150, 100, 20
+        ellipse -300, -200, 150, 100
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            text "Hello "
+            font "Arial", 180
+            text "World"
+
+    capture_page Title & "_radius_10_smooth",
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey -30
+        rotatex -15
+        extrude_radius 10
+
+        Body
+
+        color "red"
+        rectangle 300, 200, 150, 100
+        rounded_rectangle -300, 200, 150, 100, 20
+        ellipse -300, -200, 150, 100
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            text "Hello "
+            font "Arial", 180
+            text "World"
+
+    capture_page Title & "_radius_10_edge",
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey 15
+        rotatex 25
+        extrude_radius 10
+        extrude_count -1
+
+        Body
+
+        color "blue"
+        rectangle 300, 200, 150, 100
+        rounded_rectangle -300, 200, 150, 100, 20
+        ellipse -300, -200, 150, 100
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            text "Hello "
+            font "Arial", 180
+            text "World"
+
+    capture_page Title & "_radius_10_border",
+        light 0
+        light_position 1000, 1000, 1000
+        rotatey 20
+        rotatex -15
+        extrude_radius 10
+        extrude_count -1
+
+        Body
+
+        color "transparent"
+        rectangle 300, 200, 150, 100
+        rounded_rectangle -300, 200, 150, 100, 20
+        ellipse -300, -200, 150, 100
+        star_of_lakshmi 300, -200, 150, 100
+
+        text_box 0, 0, 800, 600,
+            align 0.5
+            vertical_align 0.5
+            font "Times", 180
+            text "Hello "
+            font "Arial", 180
+            text "World"
+

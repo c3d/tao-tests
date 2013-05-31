@@ -51,7 +51,10 @@ shopt -s nullglob
             rm -f diff_$f
         else
             echo "! $f: $DIFF pixels differ"
-            DIFFERENT_FILES=$(($DIFFERENT_FILES + 1))
+            DIFFERENT_FILES=$((DIFFERENT_FILES + 1))
+            if [ "$OPENDIFF" != "" ]; then
+                open ../$REFDIR/$f $f diff_$f
+            fi
         fi
     else
         echo "  !! Only in $OUTDIR: $f"
@@ -59,8 +62,10 @@ shopt -s nullglob
   done
   cd - >/dev/null
 }
+TOTAL_FILES=$((IDENTICAL_FILES + DIFFERENT_FILES))
 
 echo
 echo "Summary:"
 echo "  identical: $IDENTICAL_FILES files"
 echo "  different: $DIFFERENT_FILES files"
+echo "      total: $TOTAL_FILES files"
