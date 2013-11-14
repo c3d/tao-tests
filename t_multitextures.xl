@@ -6,7 +6,7 @@ tex2 -> 0
 
 page "MultiTexture create",
     locally
-        frame_texture 202, 101,
+        frame_texture "Multi-tex0", 202, 101,
             color "white", 0.8
             rectangle 202, 101
             color "red", 0.9
@@ -14,7 +14,7 @@ page "MultiTexture create",
             ellipse 0, 0, 103, 105
         tex0 := texture
     locally
-        frame_texture 303, 303,
+        frame_texture "Multi-tex1", 303, 303,
             line_color "pink", 0.5
             rounded_rectangle_in_frame with 1..60
             rounded_rectangle_in_frame N:integer ->
@@ -23,7 +23,7 @@ page "MultiTexture create",
                 rotatez 6
         tex1 := texture
     locally
-        frame_texture 512, 128,
+        frame_texture "Multi-tex2", 512, 128,
             color "black", 0.3
             rectangle 500, 120
             color "white", 0.9
