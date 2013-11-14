@@ -22,6 +22,8 @@
 #     $ PATH=/path/to/Tao:$PATH make ref
 #   * Run select tests (pics go into ./out)
 #     $ ./runtest.sh t_shapes2d.xl
+#   * Set command-line option(s):
+#     $ TAOOPT="-nomgtc" make check
 #
 REF=./ref
 OUT=./out

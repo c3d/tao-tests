@@ -89,7 +89,7 @@ for f in "$@" ; do
   else
     wrap_xl_file $f
     [ "$WRAPFILE" ] && f="$WRAPFILE"
-    "$TAO" -nosplash -p capture.xl $f
+    "$TAO" $TAOOPT -nosplash -p capture.xl $f
     clean_wrap_file
   fi
 done
