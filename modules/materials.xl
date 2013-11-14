@@ -9,6 +9,13 @@ BOTTOM -> "brightday2_negative_y.jpg"
 FRONT -> "brightday2_positive_z.jpg"
 BACK -> "brightday2_negative_z.jpg"
 
+// Tao commit 520d183 has changed scaling of materials (value is no longer
+// divided by 100). See #3235.
+MatScale ->
+    if TAO_VERSION < 1.44 then
+        100
+    else
+        1
 
 // ============================================================================
 //
@@ -22,13 +29,13 @@ capture_page "materials",
     light 0
     light_position -15000, 15000, 0
     locally
-        wood 100
+        wood MatScale
         sphere 200, 0, 0, 200
     locally
-        granite 100
+        granite MatScale
         sphere -200, 0, 0, 200
     locally
-        marble 100
+        marble MatScale
         sphere 0, 200, 0, 200
     locally
         color "white"
