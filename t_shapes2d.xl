@@ -22,10 +22,15 @@ capture_page "circle_FrontBack",
     circle 150, 0, 50
     rotatey 180
     circle 150, 0, 50
+compat_ellipse_sector a, b, c, d, e, f ->
+    if TAO_VERSION < 1.44 then
+        ellipse_arc a, b, c, d, e, f
+    else
+        ellipse_sector a, b, c, d, e, f
 capture_page "ellipse_sector_FrontBack",
-    ellipse_sector 150, 0, 200, 100, 20, 50
+    compat_ellipse_sector 150, 0, 200, 100, 20, 50
     rotatey 180
-    ellipse_sector 150, 0, 200, 100, 20, 50
+    compat_ellipse_sector 150, 0, 200, 100, 20, 50
 capture_page "triangle_FrontBack",
     triangle 150, 0, 100, 200
     rotatey 180
