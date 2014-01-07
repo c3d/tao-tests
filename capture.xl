@@ -15,12 +15,13 @@ capture_end
 // Get numeric value for Tao version (some tests depend on it)
 import RegExp
 TAO_VERSION -> 0.0
-if TAO_VERSION = 0.0 then
+cached 0,
     if env "TAO_VERSION" != "" then
         TAO_VERSION := real env "TAO_VERSION"
     else
         regexp_parse_text tao_version,
-            - "^(\d+\.\d+)\D.*" ->  TAO_VERSION := real regexp_captured 1
+            "^(\d\.\d+)" -> TAO_VERSION := real regexp_captured 1
+    writeln "TAO_VERSION=", TAO_VERSION
 
 // Not set => default 2D
 // checkerboard hintstereo hsplitstereo vsplitstereo
