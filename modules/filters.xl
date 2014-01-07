@@ -10,11 +10,20 @@ Filter T:text, F:code ->
 Filter "gaussian",
     gaussian 5
 Filter "mean",
-    mean 5
+    if TAO_VERSION < 1.45 then
+        mean 5
+    else
+        mean
 Filter "emboss",
-    emboss 1
+    if TAO_VERSION < 1.45 then
+        emboss 1
+    else
+        emboss
 Filter "sharpness",
-    sharpness 1
+    if TAO_VERSION < 1.45 then
+        sharpness 1
+    else
+        sharpness
 Filter "black_and_white",
     black_and_white
 Filter "erode",
