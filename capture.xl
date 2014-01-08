@@ -69,6 +69,10 @@ capture_page T:text, Body ->
         capture page_name page_number 
         next_page
 
+capture_page MinVer:real, T:text, Body ->
+    if TAO_VERSION >= MinVer then
+        capture_page T, Body
+
 // Set display mode and resolution
 WindowW -> 800
 WindowH -> 600
