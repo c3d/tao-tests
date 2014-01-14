@@ -1,0 +1,5 @@
+import SeyesTheme
+theme "Seyes"
+push_test_name "SeyesTheme"
+import "../slides.xl"
+pop_test_name

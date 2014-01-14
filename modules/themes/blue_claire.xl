@@ -1,0 +1,5 @@
+import BlueClaireTheme
+theme "BlueClaire"
+push_test_name "BlueClaireTheme"
+import "../slides.xl"
+pop_test_name

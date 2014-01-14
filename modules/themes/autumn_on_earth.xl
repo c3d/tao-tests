@@ -1,0 +1,5 @@
+import AutumnOnEarthTheme
+theme "AutumnOnEarth"
+push_test_name "AutumnOnEarthTheme"
+import "../slides.xl"
+pop_test_name

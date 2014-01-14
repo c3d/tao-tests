@@ -18,6 +18,7 @@ import "modules/point_cloud.xl"
 import "modules/revolving_texts.xl"
 import "modules/shading.xl"
 import "modules/sparks.xl"
+import "modules/t_themes.xl"
 //import "modules/tao_visuals.xl"
 import "modules/water_surface.xl"
 

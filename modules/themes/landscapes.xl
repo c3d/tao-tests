@@ -1,0 +1,5 @@
+import LandscapesTheme
+theme "Landscapes"
+push_test_name "LandscapesTheme"
+import "../slides.xl"
+pop_test_name
