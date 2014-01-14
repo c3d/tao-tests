@@ -66,7 +66,7 @@ capture_page T:text, Body ->
     page PAGE_PREFIX & T,
         locally
             do Body
-        capture page_name page_number 
+        capture page_name
         next_page
 
 capture_page MinVer:real, T:text, Body ->
