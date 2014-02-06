@@ -54,6 +54,7 @@ fi
 
 [ -e "$CAPTURE_DIR" ] || mkdir -p "$CAPTURE_DIR"
 "$TAO" --version > "$CAPTURE_DIR"/version
+[ "$TAO_VERSION" ] && echo "TAO_VERSION=$TAO_VERSION" >>"$CAPTURE_DIR"/version
 
 WRAPFILE=""
 # If $1 is a .xl file, create a .ddd file that can be run by itself
