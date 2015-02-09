@@ -19,24 +19,17 @@
 # $TAO is set when the script calls itself (to process directories)
 if [ -z "$TAO" ] ; then
   # Set environment variables to run Tao Presentations
-  case $(uname) in
-    Darwin)
-      TAOBASE="Tao Presentations"
-      ;;
-    Linux|MINGW*)
-      TAOBASE="Tao"
-      ;;
-  esac
+  TAOBASE="Tao3D"
   DFLT=none
   TAO=$(which "$TAOBASE" 2>&1)
   if [ -z "$TAO" ] ; then
     case $(uname) in
       Darwin)
-        DFLT="$HOME/work/tao/install/Tao Presentations.app/Contents/MacOS"
+        DFLT="$HOME/Work/tao/install/Tao3D.app/Contents/MacOS"
         PATH="$DFLT:$PATH"
         ;;
       Linux|MINGW*)
-        DFLT="$HOME/work/tao/install"
+        DFLT="$HOME/Work/tao/install"
         PATH="$DFLT:$PATH"
         ;;
     esac
@@ -89,7 +82,8 @@ for f in "$@" ; do
   else
     wrap_xl_file $f
     [ "$WRAPFILE" ] && f="$WRAPFILE"
-    "$TAO" $TAOOPT -nosplash -p capture.xl $f
+    echo "$TAO" $TAOOPT -nosplash -preload capture.xl $f    
+    "$TAO" $TAOOPT -nosplash -preload capture.xl $f
     clean_wrap_file
   fi
 done
