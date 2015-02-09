@@ -40,12 +40,15 @@ CAPTURE_DIR -> env "CAPTURE_DIR"
 // pop_test_name
 // ... will create cap_foo_bar_baz.png
 data NameStack
+StackTop -> 0
 StackTop := 0
 PAGE_PREFIX ->
     Ret -> ""
+    Idx -> 0
     Ret := ""
     for i in 1 .. StackTop loop
-        Ret := Ret & NameStack[i] & "_"
+        Idx := i
+        Ret := Ret & NameStack[Idx] & "_"
     Ret
 push_test_name N:text ->
     StackTop := StackTop + 1
