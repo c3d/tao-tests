@@ -60,8 +60,9 @@ pop_test_name ->
 
 cap_dir -> if CAPTURE_DIR <> "" then CAPTURE_DIR & "/" else ""
 cap_path T:text -> cap_dir & "cap_" & T  & ".png"
-capture PageName ->
+capture PageName:text ->
     writeln "Capture: ", cap_path PageName
+    status cap_path PageName
     screenshot cap_path PageName
 
 capture_page T:text, Body ->
@@ -90,3 +91,5 @@ capture_end ->
     page "End",
         writeln "End"
         exit 0
+
+color "default" -> color "black"

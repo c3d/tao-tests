@@ -1,6 +1,6 @@
+clear_color 1, 1, 1, 0
 capture_page "clear_color_black",
     clear_color 0, 0, 0, 1
-clear_color 1, 1, 1, 0
 
 color_test "black"
 color_test "white"

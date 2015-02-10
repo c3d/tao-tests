@@ -32,7 +32,7 @@ OUT=./out
 
 .PHONY: check_ref ref out
 
-all:
+all: check
 
 check: check_ref $(OUT)
 	./compare.sh $(REF) $(OUT)
