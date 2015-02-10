@@ -1,7 +1,29 @@
+// ****************************************************************************
+//  capture.xl                                                     Tao project 
+// ****************************************************************************
+// 
+//   File Description:
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// ****************************************************************************
+//  (C) 2015 Christophe de Dinechin <christophe@taodyne.com>
+//  (C) 2014 Jerome Forissier <jerome@taodyne.com>
+//  (C) 2013 Baptiste Soulisse <baptiste.soulisse@taodyne.com>
+//  (C) 2015 Taodyne SAS
+// ****************************************************************************
+
 // Definitions to be used in the body of automatic tests
 //
 // Example:
-//   tao -p capture.xl <filename>.ddd
+//   tao -preload capture.xl <filename>.ddd
 /*
 capture_begin
 capture_page "Rectangle",
@@ -12,24 +34,14 @@ capture_end
 */
 
 
-// Get numeric value for Tao version (some tests depend on it)
-import RegExp
-TAO_VERSION -> 0.0
-if TAO_VERSION = 0.0 then
-    if env "TAO_VERSION" != "" then
-        TAO_VERSION := real env "TAO_VERSION"
-    else
-        regexp_parse_text tao_version,
-            - "^(\d+\.\d+)\D.*" ->  TAO_VERSION := real regexp_captured 1
-
 // Not set => default 2D
 // checkerboard hintstereo hsplitstereo vsplitstereo
 // alioscopy tridelity 2dplusdepth 2dplusdepth_declipse
-DISPLAYMODE -> env "DISPLAYMODE"
+DISPLAYMODE -> ""
 
 // Not set => document directory
 // Absolute or relative to document directory. Must exist or nothing is saved.
-CAPTURE_DIR -> env "CAPTURE_DIR"
+CAPTURE_DIR -> ""
 
 // Group tests hierarchically
 // Example:
@@ -39,37 +51,28 @@ CAPTURE_DIR -> env "CAPTURE_DIR"
 // pop_test_name
 // pop_test_name
 // ... will create cap_foo_bar_baz.png
-data NameStack
-StackTop -> 0
-StackTop := 0
-PAGE_PREFIX ->
-    Ret -> ""
-    Idx -> 0
-    Ret := ""
-    for i in 1 .. StackTop loop
-        Idx := i
-        Ret := Ret & NameStack[Idx] & "_"
-    Ret
+data name_stack
+name_stack_top -> 0
+name_prefix -> ""
 push_test_name N:text ->
-    StackTop := StackTop + 1
-    NameStack[StackTop] := N
-    //writeln "push_test_name ", N, " => ", PAGE_PREFIX
-pop_test_name ->
-    StackTop := StackTop - 1
-    //writeln "pop_test_name => ", PAGE_PREFIX
+    name_stack_top := name_stack_top + 1
+    name_stack[name_stack_top] := name_prefix & ""
+    name_prefix := name_prefix & N & "_"
 
-cap_dir -> if CAPTURE_DIR <> "" then CAPTURE_DIR & "/" else ""
-cap_path T:text -> cap_dir & "cap_" & T  & ".png"
+pop_test_name ->
+    name_prefix := name_stack[name_stack_top]
+    name_stack_top := name_stack_top - 1
+
+capture_path T:text -> CAPTURE_DIR & T  & ".png"
 capture PageName:text ->
-    writeln "Capture: ", cap_path PageName
-    status cap_path PageName
-    screenshot cap_path PageName
+    writeln "Capture: ", capture_path PageName
+    status capture_path PageName
+    screenshot capture_path PageName
 
 capture_page T:text, Body ->
-    page PAGE_PREFIX & T,
-        locally
-            do Body
-        capture page_name page_number 
+    page name_prefix & T,
+        locally Body
+        capture page_label
         next_page
 
 // Set display mode and resolution
@@ -79,13 +82,16 @@ capture_begin ->
     page "Capture begin",
         locally
             window_size WindowW, WindowH 
+            DISPLAYMODE := env "DISPLAYMODE"
             if DISPLAYMODE <> "" then
                 writeln "Display mode: ", DISPLAYMODE
                 display_mode DISPLAYMODE
+
+            CAPTURE_DIR := env "CAPTURE_DIR"
+            if CAPTURE_DIR <> "" then
+                CAPTURE_DIR := CAPTURE_DIR & "/"
             writeln "Begin"
             next_page
-
-next_page -> goto_page page_name (page_number + 1)
 
 capture_end ->
     page "End",

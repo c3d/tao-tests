@@ -24,8 +24,6 @@
 #     $ ./runtest.sh t_shapes2d.xl
 #   * Set command-line option(s):
 #     $ TAOOPT="-nomgtc" make check
-#   * Force specific version of Tao (some tests check the version)
-#     $ TAO_VERSION=1.44 make check
 #
 REF=./ref
 OUT=./out
