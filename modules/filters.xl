@@ -8,13 +8,13 @@ Filter T:text, F:code ->
         rectangle 0, 0, 500, 500
 
 Filter "gaussian",
-    gaussian 5
+    gaussian
 Filter "mean",
-    mean 5
+    mean
 Filter "emboss",
-    emboss 1
+    emboss
 Filter "sharpness",
-    sharpness 1
+    sharpness
 Filter "black_and_white",
     black_and_white
 Filter "erode",
