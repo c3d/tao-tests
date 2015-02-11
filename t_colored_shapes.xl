@@ -1,10 +1,9 @@
-push_test_name "col"
+push_test_name "colored"
 
 color "blue", 50%
 line_color "red", 50%
-import "t_shapes3d.xl"
+import "t_shapes.xl"
 color "default"
 line_color "default"
-color "default"
 
 pop_test_name

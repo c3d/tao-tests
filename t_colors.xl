@@ -1,30 +1,108 @@
-clear_color 1, 1, 1, 0
-capture_page "clear_color_black",
-    clear_color 0, 0, 0, 1
+push_test_name "color"                    
 
-color_test "black"
-color_test "white"
-color_test "red"
-color_test "green"
-color_test "blue"
-color_test "#223344"
-color_test "nameA", { color "red", 0.5 }
-color_test "RGB", { color 0.5, 0.5, 0.5 }
-color_test "RGBA", { color 0.5, 0.5, 0.5, 0.5 }
-color_test "HSV", { color_hsv 180, 0.8, 0.8 }
-color_test "HSVA", { color_hsv 180, 0.8, 0.8, 0.5 }
-color_test "HSL", { color_hsl 180, 0.8, 0.2 }
-color_test "HSLA", { color_hsv 180, 0.8, 0.2, 0.5 }
-color_test "CMYK", { color_cmyk 1.0, 0.2, 1.0, 0.1 }
-color_test "CMYKA", { color_cmyk 1.0, 0.2, 1.0, 0.1, 0.5 }
+color_test "RGB",
+    color color_x * 0.1, color_y * 0.1, color_z * 0.1
+color_test "RGBA",
+    color color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a
+color_test "CMYK",
+    color_cmyk color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a
+color_test "CMYKA",
+    color_cmyk color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a, color_a
+color_test "HSV",
+    color_hsv color_x * 36, color_y * 0.1, color_z * 0.1
+color_test "HSVA",
+    color_hsv color_x * 36, color_y * 0.1, color_z * 0.1, color_a
+color_test "HSL",
+    color_hsl color_x * 36, color_y * 0.1, color_z * 0.1
+color_test "HSLA",
+    color_hsl color_x * 36, color_y * 0.1, color_z * 0.1, color_a
+color_test "HEXrgb",
+    color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z)
+color_test "HEXrrggbb",
+    color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z)
+color_test "HEXrgba",
+    color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z), color_a
+color_test "HEXrrggbba",
+    color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z), color_a
+color_test "byname",
+    color color_by_name (color_x, color_y, color_z)
+color_test "textRGB",
+    color "rgb(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+color_test "textHSV",
+    color "hsv(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+color_test "textHSL",
+    color "hsl(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+color_test "textCMYK",
+    color "cmyk(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ",30)"
 
-color_test N:text ->
-    capture_page "col_" & N,
-        color N
-        rectangle 0, 0, 100, 100
+pop_test_name
+
+
+push_test_name "linecolor"                    
+color "transparent"
+
+color_test "RGB",
+    line_color color_x * 0.1, color_y * 0.1, color_z * 0.1
+color_test "RGBA",
+    line_color color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a
+color_test "CMYK",
+    line_color_cmyk color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a
+color_test "CMYKA",
+    line_color_cmyk color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a, color_a
+color "gray"
+color_test "HSV",
+    line_color_hsv color_x * 36, color_y * 0.1, color_z * 0.1
+color_test "HSVA",
+    line_color_hsv color_x * 36, color_y * 0.1, color_z * 0.1, color_a
+color_test "HSL",
+    line_color_hsl color_x * 36, color_y * 0.1, color_z * 0.1
+color_test "HSLA",
+    line_color_hsl color_x * 36, color_y * 0.1, color_z * 0.1, color_a
+color "black"
+color_test "HEXrgb",
+    line_color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z)
+color_test "HEXrrggbb",
+    line_color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z)
+color_test "HEXrgba",
+    line_color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z), color_a
+color_test "HEXrrggbba",
+    line_color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z), color_a
+color_test "byname",
+    line_color color_by_name (color_x, color_y, color_z)
+color_test "textRGB",
+    line_color "rgb(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+color_test "textHSV",
+    line_color "hsv(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+color_test "textHSL",
+    line_color "hsl(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+color_test "textCMYK",
+    line_color "cmyk(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ",30)"
+
+color "default"
+pop_test_name
+
+
+color_x -> 0
+color_y -> 0
+color_z -> 0
+color_a -> 1.0 - (color_x+color_y+color_z) * 0.03
 
 color_test Name:text, Body ->
-    capture_page "col_" & Name,
-        do Body
-        rectangle 0, 0, 100, 100
+    capture_page Name,
+        rotate_x 10
+        rotate_y -15
+        translate -200, -200, -200
+        for color_x in 0..10 loop
+            for color_y in 0..10 loop
+                for color_z in 0..10 loop
+                    Body
+                    cube color_x*40,color_y*40,color_z*40, 20,20,20
 
+
+hex1  N:integer -> text_range("0123456789ABCDEF", N, 1)
+hex10 N:integer -> hex1(N * 15 / 10)
+hex2  N:integer -> (hex10 N & hex10 N)
+
+color_names -> "Black", "Navy", "DarkBlue", "MediumBlue", "Blue", "DarkGreen", "Green", "Teal", "DarkCyan", "DeepSkyBlue", "DarkTurquoise", "MediumSpringGreen", "Lime", "SpringGreen", "Aqua", "Cyan", "MidnightBlue", "DodgerBlue", "LightSeaGreen", "ForestGreen", "SeaGreen", "DarkSlateGray", "LimeGreen", "MediumSeaGreen", "Turquoise", "RoyalBlue", "SteelBlue", "DarkSlateBlue", "MediumTurquoise", "Indigo", "DarkOliveGreen", "CadetBlue", "CornflowerBlue", "RebeccaPurple", "MediumAquaMarine", "DimGray", "SlateBlue", "OliveDrab", "SlateGray", "LightSlateGray", "MediumSlateBlue", "LawnGreen", "Chartreuse", "Aquamarine", "Maroon", "Purple", "Olive", "Gray", "SkyBlue", "LightSkyBlue", "BlueViolet", "DarkRed", "DarkMagenta", "SaddleBrown", "DarkSeaGreen", "LightGreen", "MediumPurple", "DarkViolet", "PaleGreen", "DarkOrchid", "YellowGreen", "Sienna", "Brown", "DarkGray", "LightBlue", "GreenYellow", "PaleTurquoise", "LightSteelBlue", "PowderBlue", "FireBrick", "DarkGoldenRod", "MediumOrchid", "RosyBrown", "DarkKhaki", "Silver", "MediumVioletRed", "IndianRed", "Peru", "Chocolate", "Tan", "LightGray", "Thistle", "Orchid", "GoldenRod", "PaleVioletRed", "Crimson", "Gainsboro", "Plum", "BurlyWood", "LightCyan", "Lavender", "DarkSalmon", "Violet", "PaleGoldenRod", "LightCoral", "Khaki", "AliceBlue", "HoneyDew", "Azure", "SandyBrown", "Wheat", "Beige", "WhiteSmoke", "MintCream", "GhostWhite", "Salmon", "AntiqueWhite", "Linen", "LightGoldenRodYellow", "OldLace", "Red", "Fuchsia", "Magenta", "DeepPink", "OrangeRed", "Tomato", "HotPink", "Coral", "DarkOrange", "LightSalmon", "Orange", "LightPink", "Pink", "Gold", "PeachPuff", "NavajoWhite", "Moccasin", "Bisque", "MistyRose", "BlanchedAlmond", "PapayaWhip", "LavenderBlush", "SeaShell", "Cornsilk", "LemonChiffon", "FloralWhite", "Snow", "Yellow", "LightYellow", "Ivory", "White"
+
+color_by_name X, Y, Z -> color_names[X*9+Y*4+Z+1]

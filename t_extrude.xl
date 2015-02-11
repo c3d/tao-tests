@@ -8,7 +8,7 @@ extrude_shape_test Name:text, Body ->
         light 0
         light_position 1000, 1000, 1000
         Body
-        import "t_shapes2d.xl"
+        import "t_shapes.xl"
 
     pop_test_name
 

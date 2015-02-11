@@ -9,7 +9,7 @@ light_diffuse 0.0, 0.0, 0.0, 0.0
 light_ambient 1.0, 1.0, 1.0, 0.0
 material_front_ambient 1.0, 0.0, 0.0, 1.0
 material_back_ambient 0.0, 0.0, 1.0, 1.0
-import "t_shapes2d.xl"
+import "t_shapes.xl"
 // Restore default values
 material_front_ambient 0.2, 0.2, 0.2, 1.0
 material_back_ambient 0.2, 0.2, 0.2, 1.0

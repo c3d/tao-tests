@@ -5,7 +5,7 @@ push_test_name "diffuse"
 light 0
 light_diffuse 1.0, 0.0, 0.0, 0.0
 color 0.5, 0.5, 0.5, 1.0
-import "t_shapes3d.xl"
+import "t_shapes.xl"
 // Restore default values
 color "default"
 light_diffuse 1.0, 1.0, 1.0, 1.0

@@ -8,7 +8,7 @@ color "yellow"
 material_specular 0.5, 0.5, 0.5, 1.0
 material_diffuse 0.0, 0.0, 0.0, 1.0
 material_ambient 0.0, 0.0, 0.0, 1.0
-import "t_shapes3d.xl"
+import "t_shapes.xl"
 // Restore default values
 material_specular 0.0, 0.0, 0.0, 1.0
 material_diffuse 0.8, 0.8, 0.8, 1.0

@@ -3,15 +3,13 @@ import "capture.xl"
 
 capture_begin 
 
+import "t_shapes.xl"
 import "t_colors.xl"
-import "t_line_colors.xl"
-import "t_shapes2d.xl"
-import "t_colored_shapes2d.xl"
+import "t_colored_shapes.xl"
 import "t_material.xl"
 import "t_lighting.xl"
 import "t_extrude.xl"
 import "t_pplighting.xl"
-import "t_colored_shapes3d.xl"
 import "t_gradients.xl"
 import "t_grid.xl"
 import "t_textures.xl"

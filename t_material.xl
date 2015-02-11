@@ -1,6 +1,6 @@
 push_test_name "material"
-import "t_material_ambient_frontback_shapes2d.xl"
-import "t_material_diffuse_frontback_shapes2d.xl"
-import "t_material_emission_frontback_shapes2d.xl"
-import "t_material_specular_frontback_shapes2d.xl"
+import "t_material_ambient_frontback_shapes.xl"
+import "t_material_diffuse_frontback_shapes.xl"
+import "t_material_emission_frontback_shapes.xl"
+import "t_material_specular_frontback_shapes.xl"
 pop_test_name
