@@ -42,7 +42,7 @@ shopt -s nullglob
 {
   echo "Comparing image files in $REFDIR and $OUTDIR:"
   cd $OUTDIR
-  for f in cap*.png ; do
+  for f in *.png ; do
     if [ -e ../$REFDIR/$f ] ; then
         DIFF=$(different_pixels ../$REFDIR/$f $f diff_$f)
         if [ "$DIFF" = 0 ] ; then
