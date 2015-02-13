@@ -6,6 +6,7 @@ capture_begin
 import "t_shapes.xl"
 import "t_colors.xl"
 import "t_colored_shapes.xl"
+import "t_line_caps.xl"
 import "t_material.xl"
 import "t_lighting.xl"
 import "t_extrude.xl"

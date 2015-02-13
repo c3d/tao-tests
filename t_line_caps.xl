@@ -1,0 +1,26 @@
+capture_page "Line caps",
+    locally
+        line_width 10
+        line_color "red"
+        color "yellow", 20%
+        translate_x -250
+        
+        line_caps_test with "NONE", "ARROWHEAD", "TRIANGLE", "POINTER", "DIAMOND", "CIRCLE", "SQUARE", "BAR", "CUP", "FLETCHING", "HOLLOW_CIRCLE", "HOLLOW_SQUARE", "ROUNDED"
+
+    Y0 -> 130
+    line_caps_test Style:text ->
+        path
+            endpoints_style Style, Style
+            move_to 0, -100
+            line_to 0, 100
+        path
+            endpoints_style Style, Style
+            move_to -50, Y0
+            line_to 50, Y0
+        Y0 := (((Y0 - 130) + 50) mod 150) + 130
+        path
+            endpoints_style Style, Style
+            move_to -10, -250
+            line_to 10, -120
+
+        translate_x 50
