@@ -12,7 +12,7 @@ display_test "hsplitstereo"
 display_test "vsplitstereo"
 display_test "hframepacking"
 display_test "vframepacking"
-display_test "tridelity"
+display_test "tridelity_ml"
 
 
 // Generic function to test a display mode 
