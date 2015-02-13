@@ -1,0 +1,21 @@
+import BlackAndWhiteThemes 
+
+theme "BlackOnWhite"
+push_test_name "BlackOnWhiteTheme"
+import "../slides.xl"
+pop_test_name
+
+theme "WhiteOnBlack"
+push_test_name "WhiteOnBlackTheme"
+import "../slides.xl"
+pop_test_name
+
+theme "BlackOnGray"
+push_test_name "BlackOnGrayTheme"
+import "../slides.xl"
+pop_test_name
+
+theme "WhiteOnGray"
+push_test_name "WhiteOnGrayTheme"
+import "../slides.xl"
+pop_test_name

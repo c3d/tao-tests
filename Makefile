@@ -1,5 +1,13 @@
 # Non-regression test scripts for Tao Presentations
 #
+# TL;DR - Example: non-reg tests between Tao 1.44 and master (pre-1.45)
+#
+# tao$ git co 1.44 && git submodule update && ./configure --with-modlic modules+=+display_2dplusdepth modules+=+display_alioscopy modules+=+display_tridelity && make -j3 install
+# tao_tests$ make disclean ; make ref
+# tao$ git co master && git submodule update && ./configure --with-modlic modules+=+display_2dplusdepth modules+=+display_alioscopy modules+=+display_tridelity && make -j3 install
+# tao_tests$ TAO_VERSION=1.45 make check
+#
+#
 # Pre-requisites:
 #   * bash, gmake
 #   * ImageMagick (the 'convert' command)

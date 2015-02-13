@@ -19,3 +19,11 @@ Filter "black_and_white",
     black_and_white
 Filter "erode",
     erode 0, 1, 0.3
+
+capture_page 1.45, "filter_shadow",
+    shadow 0, 0, 800, 600,
+        color "red"
+        circle -20, -20, 30
+        font "Arial", 50
+        color "blue"
+        text "Hello"

@@ -9,7 +9,7 @@ _mktemp() {
       if [ "$1" = "-d" ] ; then
         isdir = 1
       fi
-      dst=$(echo $1 | sed 's/\.X\+/.'$$'/')
+      dst=$(echo $1 | sed "s/\.X\+/.$$/")
       if [ "$isdir" ] ; then
         mkdir -p $dst
       else
