@@ -1,5 +1,7 @@
 #!/bin/bash
-# 
+#
+
+PIXEL_THRESHOLD=150
 
 . functions.sh
 
@@ -37,6 +39,7 @@ OUTDIR=${1-./out}; shift
 [ -d "$OUTDIR" ] || die "Directory $OUTDIR does not exist"
 
 IDENTICAL_FILES=0
+SIMILAR_FILES=0
 DIFFERENT_FILES=0
 shopt -s nullglob
 {
@@ -48,6 +51,10 @@ shopt -s nullglob
         if [ "$DIFF" = 0 ] ; then
             echo "  $f: identical"
             IDENTICAL_FILES=$((IDENTICAL_FILES + 1))
+            rm -f diff_$f
+        elif [ $((DIFF > PIXEL_THRESHOLD)) = 0 ] ; then
+            echo "  $f: almost identical, $DIFF pixels differ"
+            SIMILAR_FILES=$((SIMILAR_FILES + 1))
             rm -f diff_$f
         else
             echo "! $f: $DIFF pixels differ"
@@ -62,10 +69,11 @@ shopt -s nullglob
   done
   cd - >/dev/null
 }
-TOTAL_FILES=$((IDENTICAL_FILES + DIFFERENT_FILES))
+TOTAL_FILES=$((IDENTICAL_FILES + SIMILAR_FILES + DIFFERENT_FILES))
 
 echo
 echo "Summary:"
 echo "  identical: $IDENTICAL_FILES files"
+echo "  similar  : $SIMILAR_FILES files"
 echo "  different: $DIFFERENT_FILES files"
 echo "      total: $TOTAL_FILES files"
