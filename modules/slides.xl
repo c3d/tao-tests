@@ -7,12 +7,12 @@ DoTS -> { DoTitle ; DoSubtitle }
 DoCapture ->  { capture page_name ; next_page }
 
 
-base_slide PAGE_PREFIX & "BaseSlide",
+base_slide name_prefix & "BaseSlide",
     DoTitle
     DoSubtitle
     DoCapture
 
-base_slide PAGE_PREFIX & "BaseSlide-LeftRight",
+base_slide name_prefix & "BaseSlide-LeftRight",
     DoTitle
     left_column
         * "This is the left column"
@@ -20,27 +20,27 @@ base_slide PAGE_PREFIX & "BaseSlide-LeftRight",
         * "This is the right column"
     DoCapture
 
-blank_slide PAGE_PREFIX & "BlankSlide",
+blank_slide name_prefix & "BlankSlide",
     DoTS ; DoCapture
 
-main_title_slide PAGE_PREFIX & "MainTitleSlide",
+main_title_slide name_prefix & "MainTitleSlide",
     DoTS ; DoCapture
 
-section_slide PAGE_PREFIX & "SectionSlide",
+section_slide name_prefix & "SectionSlide",
     DoTitle
     DoCapture
 
-picture_slide PAGE_PREFIX & "PictureSlide",
+picture_slide name_prefix & "PictureSlide",
     color "orange"
     circle 0, 0, 100
     DoCapture
 
-picture_only_slide PAGE_PREFIX & "PictureOnlySlide",
+picture_only_slide name_prefix & "PictureOnlySlide",
     color "cyan"
     circle 0, 0, 100
     DoCapture
 
-slide PAGE_PREFIX & "Slide-Bullets",
+slide name_prefix & "Slide-Bullets",
     * "Bullet (1)"
     ** "Bullet (2)"
     * "Bullet (1)"
@@ -50,7 +50,7 @@ slide PAGE_PREFIX & "Slide-Bullets",
     capture page_name
     next_page
 
-slide PAGE_PREFIX & "Slide-Numbered",
+slide name_prefix & "Slide-Numbered",
     + "Numbered (1)"
     ++ "Numbered (2)"
     + "Numbered (1)
@@ -60,7 +60,7 @@ slide PAGE_PREFIX & "Slide-Numbered",
     capture page_name
     next_page
 
-slide PAGE_PREFIX & "Slide-Indent",
+slide name_prefix & "Slide-Indent",
     - "Indented (1)"
     -- "Indented (2)"
     - "Indented (1)

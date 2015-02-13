@@ -75,17 +75,13 @@ capture_page T:text, Body ->
         capture page_name
         next_page
 
-capture_page MinVer:real, T:text, Body ->
-    if TAO_VERSION >= MinVer then
-        capture_page T, Body
-
 // Set display mode and resolution
 WindowW -> 800
 WindowH -> 600
 capture_begin ->
     page "Capture begin",
         locally
-            window_size WindowW, WindowH 
+            window_size WindowW, WindowH
             DISPLAYMODE := env "DISPLAYMODE"
             if DISPLAYMODE <> "" then
                 writeln "Display mode: ", DISPLAYMODE

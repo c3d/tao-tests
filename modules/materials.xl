@@ -11,11 +11,9 @@ BACK -> "brightday2_negative_z.jpg"
 
 // Tao commit 520d183 has changed scaling of materials (value is no longer
 // divided by 100). See #3235.
-MatScale ->
-    if TAO_VERSION < 1.44 then
-        100
-    else
-        1
+MatScale -> 1
+
+
 
 // ============================================================================
 //
