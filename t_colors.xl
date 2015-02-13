@@ -49,36 +49,39 @@ color_test "CMYK",
     line_color_cmyk color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a
 color_test "CMYKA",
     line_color_cmyk color_x * 0.1, color_y * 0.1, color_z * 0.1, color_a, color_a
-color "gray"
-color_test "HSV",
-    line_color_hsv color_x * 36, color_y * 0.1, color_z * 0.1
-color_test "HSVA",
-    line_color_hsv color_x * 36, color_y * 0.1, color_z * 0.1, color_a
-color_test "HSL",
-    line_color_hsl color_x * 36, color_y * 0.1, color_z * 0.1
-color_test "HSLA",
-    line_color_hsl color_x * 36, color_y * 0.1, color_z * 0.1, color_a
-color "black"
-color_test "HEXrgb",
-    line_color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z)
-color_test "HEXrrggbb",
-    line_color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z)
-color_test "HEXrgba",
-    line_color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z), color_a
-color_test "HEXrrggbba",
-    line_color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z), color_a
-color_test "byname",
-    line_color color_by_name (color_x, color_y, color_z)
-color_test "textRGB",
-    line_color "rgb(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
-color_test "textHSV",
-    line_color "hsv(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
-color_test "textHSL",
-    line_color "hsl(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
-color_test "textCMYK",
-    line_color "cmyk(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ",30)"
 
-color "default"
+locally
+    color "gray"
+    line_width 3    
+    color_test "HSV",
+        line_color_hsv color_x * 36, color_y * 0.1, color_z * 0.1
+    color_test "HSVA",
+        line_color_hsv color_x * 36, color_y * 0.1, color_z * 0.1, color_a
+    color_test "HSL",
+        line_color_hsl color_x * 36, color_y * 0.1, color_z * 0.1
+    color_test "HSLA",
+        line_color_hsl color_x * 36, color_y * 0.1, color_z * 0.1, color_a
+    color "black"
+    color_test "HEXrgb",
+        line_color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z)
+    color_test "HEXrrggbb",
+        line_color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z)
+    color_test "HEXrgba",
+        line_color "#" & hex10(color_x) & hex10(color_y) & hex10(color_z), color_a
+    color "cyan", 0.3
+    color_test "HEXrrggbba",
+        line_color "#" & hex2(color_x) & hex2(color_y) & hex2(color_z), color_a
+    color_test "byname",
+        line_color color_by_name (color_x, color_y, color_z)
+    color_test "textRGB",
+        line_color "rgb(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+    color_test "textHSV",
+        line_color "hsv(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+    color_test "textHSL",
+        line_color "hsl(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ")"
+    color_test "textCMYK",
+        line_color "cmyk(" & (color_x*25) & "," & (color_y*25) & "," & (color_z*25) & ",30)"
+
 pop_test_name
 
 
