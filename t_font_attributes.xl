@@ -1,38 +1,72 @@
+// *****************************************************************************
+// t_font_attributes.xl                                            Tao3D project
+// *****************************************************************************
+//
+// File description:
+//
+//
+//
+//
+//
+//
+//
+//
+// *****************************************************************************
+// This software is licensed under the GNU General Public License v3
+// (C) 2019, Christophe de Dinechin <christophe@dinechin.org>
+// (C) 2012, Jérôme Forissier <jerome@taodyne.com>
+// *****************************************************************************
+// This file is part of Tao3D
+//
+// Tao3D is free software: you can r redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Tao3D is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Tao3D, in a file named COPYING.
+// If not, see <https://www.gnu.org/licenses/>.
+// *****************************************************************************
 // Adapted from an online documentation example
 
 capture_page "FontAttributes",
-    text_box 0, 0, window_width - 50, window_height - 50, 
-        font "Times", 16 
+    text_box 0, 0, window_width - 50, window_height - 50,
+        font "Times", 16
         fattr_write_text // normal
-        italic 
+        italic
         fattr_write_text // italic
-        roman 
+        roman
         fattr_write_text // back to normal
-        bold 
+        bold
         fattr_write_text // bold
-        regular 
+        regular
         fattr_write_text // back to normal
-        bold 
-        italic 
+        bold
+        italic
         fattr_write_text // bold and italic
-        plain 
+        plain
         fattr_write_text // back to normal
-        font "Times", 16, expanded 
+        font "Times", 16, expanded
         fattr_write_text // stretched
-        stretch 1.0 
+        stretch 1.0
         fattr_write_text //  back to normal
-        font "Lobster" 
-        fattr_write_text 
-        font "Tangerine/Bold" 
-        font_size 28 
-        fattr_write_text 
+        font "Lobster"
+        fattr_write_text
+        font "Tangerine/Bold"
+        font_size 28
+        fattr_write_text
 
 fattr_msg -> <<A quick brown fox jumps over the lazy dog.
->> 
+>>
 fattr_lineno -> 1
 fattr_lineno := 1
 
-fattr_write_text -> 
+fattr_write_text ->
     text text fattr_lineno & ". " & fattr_msg
-    fattr_lineno := fattr_lineno + 1 
+    fattr_lineno := fattr_lineno + 1
 

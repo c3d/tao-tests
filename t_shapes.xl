@@ -1,9 +1,42 @@
+// *****************************************************************************
+// t_shapes.xl                                                     Tao3D project
+// *****************************************************************************
+//
+// File description:
+//
+//
+//
+//
+//
+//
+//
+//
+// *****************************************************************************
+// This software is licensed under the GNU General Public License v3
+// (C) 2015,2019, Christophe de Dinechin <christophe@dinechin.org>
+// *****************************************************************************
+// This file is part of Tao3D
+//
+// Tao3D is free software: you can r redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Tao3D is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Tao3D, in a file named COPYING.
+// If not, see <https://www.gnu.org/licenses/>.
+// *****************************************************************************
 shapes_2D ->
     point                        50,   0,  0, 4
     point                        50,  20, 30, 8
     point                        30,  20, 30, 12
     point                        30,   0, 30, 22
-    
+
     rectangle                    50,  50, 50, 30
     triangle                     50, 100, 50, 30
     right_triangle               50, 150, 50, 30
@@ -14,11 +47,11 @@ shapes_2D ->
     ellipse_sector               50,-100, 50, 30, 30, 280
     ellipse_sector              150,-100, 50, 30, 30, 100
     ellipse_sector              250,-100, 50, 30, 30, 400
-    
+
     rounded_rectangle            50, 250, 50, 30, 10
     rounded_rectangle           150, 250, 50, 30, 100
     rounded_rectangle           250, 250, 50, 30, 0
-    
+
     elliptical_rectangle         50,-150, 50, 30, 20%
     arrow                        50,-200, 50, 30, 10, 20%
     arrow                       150,-200, 50, 30, 20, 80%
